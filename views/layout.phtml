@@ -1,8 +1,21 @@
 <!doctype html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Freshly Restaurant, your new favourite restaurant !">
+	<title>Freshly Restaurant - Home</title>
+	<link rel="icon" href="favicon.png">
+	<link href="https://fonts.googleapis.com/css?family=Athiti:500|Merienda:400,700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/slick.css">
+	<link rel="stylesheet" href="css/slick-theme.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/fontawesome.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/brands.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/solid.min.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
 </head>
 <body>
 	<header>
@@ -16,16 +29,47 @@
 				<a href="index.php?page=admin&action=deco">Deconnexion</a>
 				Bonjour <?= $_SESSION['admin'] ?>
 			<?php endif; ?>
-			
-			
-			
 		</nav>
 	</header>
 	
 	<!-- code principal de la page -->
 	<?php include $template ?>
 	
-	</body>
+</body>
+
+<footer>
+	<div class="container">
+		<div class="flex">
+			<aside>
+				<h4>Opening hours</h4>
+				<ul>
+					<li>Monday: Closed</li>
+					<li>Tue-Wed : 9am - 10pm</li>
+					<li>Thu-Fri : 9am - 10pm</li>
+					<li>Sat-Sun : 5pm - 10pm</li>
+				</ul>
+			</aside>
+			<aside>
+				<h4>Contact</h4>
+				<address>
+					<p>13 Christopher Street<br>
+						New York,<br>
+						NY 10014-3543</p>
+					<p>+01 2000 800 9999</p>
+				</address>
+			</aside>
+			<aside>
+				<h4>Social networks</h4>
+				<div class="reseaux">
+					<a href="#" class="fab fa-facebook-f"></a>
+					<a href="#" class="fab fa-instagram"></a>
+					<a href="#" class="fab fa-pinterest-p"></a>
+				</div>
+			</aside>
+		</div> <!-- end of .flex -->
+	</div> <!-- end of .container -->
+</footer>
+
 </html>
 	
 	
