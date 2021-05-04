@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<header>
+		<nav>
+			<a href="index.php">Accueil</a>
+			<?php if(isset($_SESSION['admin'])): ?>
+				<a href="index.php?page=consoles">Consoles</a>
+			<?php endif; ?>
+			<a href="index.php?page=admin">Administration</a>
+			<?php if(isset($_SESSION['admin'])): ?>
+				<a href="index.php?page=admin&action=deco">Deconnexion</a>
+				Bonjour <?= $_SESSION['admin'] ?>
+			<?php endif; ?>
+			
+			
+			
+		</nav>
+	</header>
+	
+	<!-- code principal de la page -->
+	<?php include $template ?>
+	
+	</body>
+</html>
+	
+	
+	
