@@ -19,7 +19,7 @@ class Menus extends Database
     	
     }
     
-     // Afficher les menus par categories
+    // Afficher les menus par categories
     public function getMenusByCategory($category)
     {
     	return $this -> findAll("
