@@ -15,14 +15,12 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/solid.min.css">
 	<link rel="stylesheet" href="css/style.css">
 </head>
-
-</head>
 <body>
 	<header>
 		<nav>
 			<a href="index.php">Accueil</a>
 			<?php if(isset($_SESSION['admin'])): ?>
-				<a href="index.php?page=consoles">Consoles</a>
+				
 			<?php endif; ?>
 			<a href="index.php?page=admin">Administration</a>
 			<?php if(isset($_SESSION['admin'])): ?>
