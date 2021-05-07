@@ -17,7 +17,7 @@ class AdminController
 		if(isset($_GET['action']) && $_GET['action'] == 'deco')
 		{
 			session_destroy();
-			header('location:index.php?page=login');
+			header('location:index.php?page=admin');
 			exit;
 		}
 	}
