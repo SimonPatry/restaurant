@@ -45,4 +45,20 @@ class Menus extends Database
     	
     }
     
+    // Afficher les menus par alias
+    public function getMenusByAlias()
+    {
+    	return $this -> findAll("
+    	SELECT 
+    	title,
+    	src,
+    	alt,
+    	price,
+    	id_category,
+    	alias
+    	FROM menus
+    	WHERE alias = ?", [$alias]);");
+    	
+    }
+    
 }
