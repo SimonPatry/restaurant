@@ -14,6 +14,12 @@ class AdminController
 		{
 			$this -> connection();
 		}
+		if(isset($_GET['action']) && $_GET['action'] == 'deco')
+		{
+			session_destroy();
+			header('location:index.php?page=login');
+			exit;
+		}
 	}
 	private function connection()
 	{
@@ -22,6 +28,8 @@ class AdminController
 		if (password_verify($pw, $admin['password']))
 		{
 			$_SESSION['admin'] = $admin['first_name'];
+			header('location:index.php?page=dashboard');
+			exit;
 		}
 	}
 	public function display()
