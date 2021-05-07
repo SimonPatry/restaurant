@@ -1,0 +1,5 @@
+Options +FollowSymlinks
+RewriteEngine on
+
+RewriteRule ^admin$ index.php?page=admin [L]
+RewriteRule ^menu/([0-9]+)$ index.php?page=admin&menu=$1 [L]
