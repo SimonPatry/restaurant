@@ -2,13 +2,7 @@
 
 namespace Controllers;
 
-if(!isset($_SESSION['admin']))
-    {
-    	header('location:index.php?page=admin');
-    	exit;
-    }
-
-class DashboardController
+class ContactController
 {
 	private $model;
 	public $message;
@@ -18,7 +12,7 @@ class DashboardController
 	}
 	public function display()
 	{
-		$template = "views/dashboard.phtml";
+		$template = "views/contact.phtml";
 		include 'views/layout.phtml';
 	}
 	

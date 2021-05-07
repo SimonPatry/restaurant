@@ -20,6 +20,10 @@ if (isset($_GET['page']))
 		$controller = new Controllers\DashboardController();
 		$controller -> display();
 		break;
+		case 'contact':
+		$controller = new Controllers\ContactController();
+		$controller -> display();
+		break;
 	}
 	
 }
