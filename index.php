@@ -1,17 +1,8 @@
 <?php
 
 spl_autoload_register(function ($class_name) {
-	
-    if (strchr($class_name, "Models"))
-    {
-    	$file = substr($class_name, 19);
-    	include "models/".$file.".php";
-    }
-    else
-    {
-		$file = substr($class_name, 12);
-		include "controllers/".$file.".php";
-	}
+    	$file = lcfirst(str_replace('\\', '/', $class_name));
+    	include $file.".php";
 });
 
 session_start();

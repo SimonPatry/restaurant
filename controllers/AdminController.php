@@ -8,25 +8,24 @@ class AdminController
 	public $message;
 	public function __construct()
 	{
-		$this -> model = new Models\Admin();
+		$this -> model = new \Models\Admin();
 		$this -> message = "";
-	}
-	public function connection()
-	{
-		$admin = $this -> model -> getAdminByIdentifiant($_POST('identifiant'));
-		$pw = $_POST['pw'];
-		if (password_verify(pw, $admin['password']))
+		if (!empty($_POST))
 		{
-			$_SESSION['admin'] = $admin['name'];
+			$this -> connection();
+		}
+	}
+	private function connection()
+	{
+		$admin = $this -> model -> getAdminByIdentifiant($_POST['identifiant']);
+		$pw = $_POST['pw'];
+		if (password_verify($pw, $admin['password']))
+		{
+			$_SESSION['admin'] = $admin['first_name'];
 		}
 	}
 	public function display()
 	{
-		if (!empty($_POST))
-		{
-			var_dump($_POST);
-			$this -> connection();
-		}
 		$template = "views/admin.phtml";
 		include 'views/layout.phtml';
 	}
