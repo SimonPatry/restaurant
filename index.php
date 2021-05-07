@@ -25,7 +25,7 @@ if (isset($_GET['page']))
 		case 'menus':
 		$controller = new Controllers\MenusController();
 		$controller -> display();
-		
+		break;
 		case 'contact':
 		$controller = new Controllers\ContactController();
 		$controller -> display();
