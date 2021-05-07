@@ -16,8 +16,14 @@ if (isset($_GET['page']))
 		$controller = new Controllers\AdminController();
 		$controller -> display();
 		break;
+		
 		case 'dashboard':
 		$controller = new Controllers\DashboardController();
+		$controller -> display();
+		break;
+		
+		case 'menus':
+		$controller = new Controllers\MenusController();
 		$controller -> display();
 		break;
 	}
