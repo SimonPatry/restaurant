@@ -2,14 +2,14 @@
 
 namespace Models;
 
-class Admin extends Database
+class Menus extends Database
 {
-    public function getAdminByIdentifiant($email)
+    public function getAllMenus()
     {
-    	return $this -> findOne("
-    	SELECT password, email, first_name, last_name
-    	FROM admin
-    	WHERE email = ?", [$email]);
+    	return $this -> findAll("
+    	SELECT 
+    	FROM 
+    	");
     	
     }
 }
