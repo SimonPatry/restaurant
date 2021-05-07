@@ -2,4 +2,13 @@ Options +FollowSymlinks
 RewriteEngine on
 
 RewriteRule ^admin$ index.php?page=admin [L]
-RewriteRule ^menu/([0-9]+)$ index.php?page=admin&menu=$1 [L]
+
+
+
+RewriteRule ^accueil$ index.php?page=accueil [L]
+RewriteRule ^contact$ index.php?page=contact [L]
+#RewriteRule ^about$ index.php?page=about [L]
+RewriteRule ^plats$ index.php?page=plats [L]
+
+RewriteRule ^menus$ index.php?page=menus [L]
+RewriteRule ^menu/([A-Z]+)$ index.php?page=menus&menu=$1 [L]

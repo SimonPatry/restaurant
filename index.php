@@ -21,8 +21,11 @@ if (isset($_GET['page']))
 		$controller = new Controllers\DashboardController();
 		$controller -> display();
 		break;
+		
 		case 'menus':
 		$controller = new Controllers\MenusController();
+		$controller -> display();
+		
 		case 'contact':
 		$controller = new Controllers\ContactController();
 		$controller -> display();
