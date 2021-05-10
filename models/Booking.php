@@ -7,8 +7,9 @@ class Booking extends Database
     public function getAllBookings():array
     {
         return $this -> findAll("
-    	SELECT customer_number, id_user, date, hour, status, comment
-    	FROM booking");
+    	SELECT id, customer_number, id_user, date, hour, status, comment
+    	FROM booking
+    	ORDER BY id DESC");
     }
     
     public function getBookingByUser(int $id):array
@@ -18,4 +19,19 @@ class Booking extends Database
     	FROM booking
     	WHERE id_user = ?", [$id]);
     }
+
+    public function updateBooking($number,$date,$hour,$status,$comment,$id)
+    {
+        
+        $this -> updateTable("
+        UPDATE booking
+        SET customer_number = ?, date = ?, hour = ?, status = ?, comment = ?
+        WHERE id = ?
+        ", [$number,$date,$hour,$status,$comment,$id]);
+        
+    }
+    
+    
+    
+    
 }

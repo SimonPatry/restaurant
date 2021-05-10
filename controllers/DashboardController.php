@@ -32,6 +32,11 @@ class DashboardController
 		include "views/dashboardBooking.phtml";
 	}
 	
+	public function editBooking($number,$date,$hour,$status,$comment,$id)
+	{
+		$bookingTable = $this -> bookings ->updateBooking($number,$date,$hour,$status,$comment,$id);
+		echo 'Test';
+	}
 	
 	public function display()
 	{

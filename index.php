@@ -35,15 +35,17 @@ else if (isset($_GET['ajax']))
 {
 	switch($_GET['ajax'])
 	{
-		case 'categories':
-		$controller = new Controllers\DashboardController();
-		$controller -> displayCategories();
-		break;
-		
 		case 'booking':
-		$controller = new Controllers\DashboardController();
-		$controller -> displayBooking();
-		break;
+			$controller = new Controllers\DashboardController();
+			$controller -> displayBooking();
+			break;
+		
+		case 'editBooking':
+			$datas = file_get_contents('php://input');
+			$updateBooking = json_decode($datas);
+			$controller = new Controllers\DashboardController();
+			$controller -> editBooking($updateBooking -> number, $updateBooking -> date, $updateBooking -> hour, $updateBooking -> status, $updateBooking -> comment, $updateBooking -> id);
+			break;
 	}
 }
 else

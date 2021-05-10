@@ -1,6 +1,7 @@
+<h2>Gestion des réservations</h2>
 <table>
     <tr>
-        <th>Numéro client</th>
+        <th>Nombres de clients</th>
         <th>Date</th>
         <th>Heure</th>
         <th>Statut</th>
@@ -10,12 +11,21 @@
     </tr>
     <?php foreach($bookingTable as $booking): ?>
         <tr>
-        	<td><?= $booking['customer_number'] ?></td>
+	    	<td><?= $booking['customer_number'] ?></td>
         	<td><?= $booking['date'] ?></td>
         	<td><?= $booking['hour'] ?></td>
         	<td><?= $booking['status'] ?></td>
         	<td><?= $booking['comment'] ?></td>
-    		<td><button><a href=""><i class="fas fa-pen-nib"></i></a></button></td>
+    		<td><button><a class="editBooking" data-id="<?= $booking['id'] ?>" href="" ?><i class="fas fa-pen-nib"></i></a></button></td>
+    		<td><button><a href=""><i class="fas fa-trash-alt"></i></a></button></td>
+        </tr>
+        <tr class="hide input" data-id="<?= $booking['id'] ?>" id="id<?= $booking['id'] ?>">
+	    	<td><form><input type="text" class="number" name="number" value="<?= $booking['customer_number'] ?>"></form></td>
+        	<td><form><input type="date" class="date" name="date" value="<?= $booking['date'] ?>"></form></td>
+        	<td><form><input type="time" class="hour" name="hour" value="<?= $booking['hour'] ?>"></form></td>
+            <td><form><input type="text" class="status" name="status" value="<?= $booking['status'] ?>"></form></td>
+        	<td><form><input type="text" class="comment" name="comment" value="<?= $booking['comment'] ?>"></form></td>
+    		<td><button><a class="editBooking" data-id="<?= $booking['id'] ?>" href="" ?><i class="fas fa-pen-nib"></i></a></button></td>
     		<td><button><a href=""><i class="fas fa-trash-alt"></i></a></button></td>
         </tr>
     <?php endforeach; ?>

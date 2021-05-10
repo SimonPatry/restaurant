@@ -26,4 +26,10 @@ abstract class Database
 		return $query -> fetch(\PDO::FETCH_ASSOC);
 	}
 	
+	public function updateTable(string $req,array $params = [])
+	{
+		$query = $this -> bdd -> prepare($req);
+		$query -> execute($params);
+	}
+	
 }
