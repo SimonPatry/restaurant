@@ -26,12 +26,37 @@ if (isset($_GET['page']))
 		$controller = new Controllers\MenusController();
 		$controller -> display();
 		break;
+		
 		case 'contact':
 		$controller = new Controllers\ContactController();
 		$controller -> display();
 		break;
+		
+		
 	}
 	
+}
+else if (isset($_GET['ajax']))
+{
+	switch($_GET['ajax'])
+	{
+		case 'categories':
+		$controller = new Controllers\DashboardController();
+		$controller -> displayCategories();
+		break;
+		case 'editCat':
+		$controller = new Controllers\DashboardController();
+		$controller -> editCategory();
+		break;
+		case 'addCat':
+		$controller = new Controllers\DashboardController();
+		$controller -> addCategory();
+		break;
+		case 'delCat':
+		$controller = new Controllers\DashboardController();
+		$controller -> deleteCategory($_GET['id']);
+		break;
+	}
 }
 else
 {

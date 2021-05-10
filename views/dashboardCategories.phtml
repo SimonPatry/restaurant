@@ -1,0 +1,35 @@
+<table id="categoriesTab">
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>main dish</th>
+        <th>description</th>
+        <th>edit</th>
+        <th>delete</th>
+    </tr>
+    <?php foreach($categoriesTable as $category): ?>
+        <tr data-id="1" class="hide" id="<?= $category['id'] ?>">
+            <td><input class="id" type="text" value="<?= $category['id'] ?>"></td>
+            <td><input class="name" type="text" value="<?= $category['name'] ?>"></td>
+            <td><input class="is_dish" type="text" value="<?= $category['is_dish'] ?>"></td>
+            <td><input class="description" type="text" value="<?= $category['description'] ?>"></td>
+            <td><a href="#" class="editCat"><i class="fas fa-pen-nib"></i></a></td>
+    	    <td><a><i class="fas fa-trash-alt"></i></a></td>
+        </tr>
+        <tr id="<?= $category['id'] ?>" >
+            <td><?= $category['id'] ?></td>
+            <td><?= $category['name'] ?></td>
+            <td><?= $category['is_dish'] ?></td>
+            <td><?= $category['description'] ?></td>
+            <td><a href="#" class="editCat" data-id="<?= $category['id'] ?>"><i class="fas fa-pen-nib"></i></a></td>
+    	    <td><a href="#" class="delCat" data-id="<?= $category['id'] ?>"><i class="fas fa-trash-alt"></i></a></td>
+        </tr>
+        <?php endforeach;?>
+        <tr id="addCat">
+            <td>New category</td>
+            <td><input id="catName" type="text"></td>
+            <td><input id="is_dish" type="text"></td>
+            <td><input id="description" type="text"></td>
+            <td><a href="#" id="newCat">Add Category</i></a></td>
+        </tr>
+</table>

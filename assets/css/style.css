@@ -199,6 +199,37 @@ nav a.active {
 }
 
 /* *****************************************************************
+DASHBOARD
+***************************************************************** */
+
+#gestion{
+	margin:1em;
+		display: flex;
+	flex-wrap:wrap;
+}
+
+#gestion ul{
+
+	flex-direction:column;
+}
+
+#categoriesTab{
+	margin:auto;
+	width:80%;
+	border-collapse:collapse;
+	border:1px solid black;
+}
+#categoriesTab tr,
+#categoriesTab th,
+#categoriesTab td{
+	border:1px solid black;
+}
+
+.hide{
+	display:none;
+}
+
+/* *****************************************************************
 MAIN
 ***************************************************************** */
 
