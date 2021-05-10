@@ -32,10 +32,17 @@ class DashboardController
 		include "views/dashboardBooking.phtml";
 	}
 	
-	public function editBooking($number,$date,$hour,$status,$comment,$id)
+	public function editBooking()
 	{
-		$bookingTable = $this -> bookings ->updateBooking($number,$date,$hour,$status,$comment,$id);
-		echo 'Test';
+		$datas = file_get_contents('php://input');
+		$updateBooking = json_decode($datas);
+		$this -> bookings ->updateBooking($updateBooking -> number, $updateBooking -> date, $updateBooking -> hour, $updateBooking -> status, $updateBooking -> comment, $updateBooking -> id);
+	}
+	
+	public function deleteBooking()
+	{
+		$id = $_GET['id'];
+		$this -> bookings -> deleteBooking($id);
 	}
 	
 	public function display()

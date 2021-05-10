@@ -19,9 +19,7 @@ function editBooking(event){
 		this.parentNode.parentNode.parentNode.classList.toggle("hide");
 		this.parentNode.parentNode.parentNode.previousSibling.previousSibling.classList.toggle("hide");
 		
-		
 		let id = this.parentNode.parentNode.parentNode.dataset.id;
-		
 		let updateBooking = {
 			number: document.querySelector(`#id${id} .number`).value,
 			date: document.querySelector(`#id${id} .date`).value,
@@ -43,18 +41,21 @@ function editBooking(event){
 		.then(function(){
 			showBookingTable(event);
 		});
-		
-		
 	}
 	else {
 		this.parentNode.parentNode.parentNode.classList.toggle("hide");
 		this.parentNode.parentNode.parentNode.nextSibling.nextSibling.classList.toggle("hide");
 	}
-	
 }
 
-function deleteBooking(){
-	
+function deleteBooking(event){
+	event.preventDefault();
+	let id = this.dataset.id;
+	console.log(id);
+	fetch(`index.php?ajax=deleteBooking&id=${id}`)
+    .then(function(){
+		showBookingTable(event);
+	});
 }
 
 

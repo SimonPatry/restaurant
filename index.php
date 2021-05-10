@@ -41,10 +41,14 @@ else if (isset($_GET['ajax']))
 			break;
 		
 		case 'editBooking':
-			$datas = file_get_contents('php://input');
-			$updateBooking = json_decode($datas);
+			
 			$controller = new Controllers\DashboardController();
-			$controller -> editBooking($updateBooking -> number, $updateBooking -> date, $updateBooking -> hour, $updateBooking -> status, $updateBooking -> comment, $updateBooking -> id);
+			$controller -> editBooking();
+			break;
+			
+		case 'deleteBooking':
+			$controller = new Controllers\DashboardController();
+			$controller -> deleteBooking();
 			break;
 	}
 }

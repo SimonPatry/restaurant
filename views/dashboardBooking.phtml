@@ -17,7 +17,7 @@
         	<td><?= $booking['status'] ?></td>
         	<td><?= $booking['comment'] ?></td>
     		<td><button><a class="editBooking" data-id="<?= $booking['id'] ?>" href="" ?><i class="fas fa-pen-nib"></i></a></button></td>
-    		<td><button><a href=""><i class="fas fa-trash-alt"></i></a></button></td>
+    		<td><button><a class="deleteBooking" data-id="<?= $booking['id'] ?>" href=""><i class="fas fa-trash-alt"></i></a></button></td>
         </tr>
         <tr class="hide input" data-id="<?= $booking['id'] ?>" id="id<?= $booking['id'] ?>">
 	    	<td><form><input type="text" class="number" name="number" value="<?= $booking['customer_number'] ?>"></form></td>
@@ -26,7 +26,7 @@
             <td><form><input type="text" class="status" name="status" value="<?= $booking['status'] ?>"></form></td>
         	<td><form><input type="text" class="comment" name="comment" value="<?= $booking['comment'] ?>"></form></td>
     		<td><button><a class="editBooking" data-id="<?= $booking['id'] ?>" href="" ?><i class="fas fa-pen-nib"></i></a></button></td>
-    		<td><button><a href=""><i class="fas fa-trash-alt"></i></a></button></td>
+    		<td><button><a class="deleteBooking" data-id="<?= $booking['id'] ?>" href=""><i class="fas fa-trash-alt"></i></a></button></td>
         </tr>
     <?php endforeach; ?>
 </table>

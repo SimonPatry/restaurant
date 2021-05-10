@@ -23,7 +23,7 @@ class Booking extends Database
     public function updateBooking($number,$date,$hour,$status,$comment,$id)
     {
         
-        $this -> updateTable("
+        $this -> modifyOne("
         UPDATE booking
         SET customer_number = ?, date = ?, hour = ?, status = ?, comment = ?
         WHERE id = ?
@@ -31,6 +31,14 @@ class Booking extends Database
         
     }
     
+    public function deleteBooking($id)
+    {
+        
+        $this -> modifyOne("
+        DELETE FROM booking
+        WHERE id = ?
+        ", [$id]);
+    }
     
     
     
