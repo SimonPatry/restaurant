@@ -2,7 +2,7 @@
 
 namespace Models;
 
-class Category extends Database
+class Categories extends Database
 {
     public function getCategoryById($id)
     {

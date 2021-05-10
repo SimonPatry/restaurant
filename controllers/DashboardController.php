@@ -13,9 +13,11 @@ class DashboardController
 	private $model;
 	public $message;
 	private $categories;
+	private $bookings;
 	public function __construct()
 	{
-		$this -> model = new \Models\Categories();
+		$this -> categories = new \Models\Categories();
+		$this -> bookings = new \Models\Booking();
 	}
 	
 	public function displayCategories()
@@ -23,6 +25,14 @@ class DashboardController
 	    $categoriesTable = $this -> categories -> getAllCategories();
 		include "views/dashboard.phtml";
 	}
+	
+	public function displayBooking()
+	{
+	    $bookingTable = $this -> bookings -> getAllBookings();
+		include "views/dashboardBooking.phtml";
+	}
+	
+	
 	public function display()
 	{
 		$template = "views/dashboard.phtml";

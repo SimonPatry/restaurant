@@ -1,0 +1,22 @@
+<table>
+    <tr>
+        <th>Numéro client</th>
+        <th>Date</th>
+        <th>Heure</th>
+        <th>Statut</th>
+        <th>Commentaire</th>
+        <th>Modifier</th>
+        <th>Supprimer</th>
+    </tr>
+    <?php foreach($bookingTable as $booking): ?>
+        <tr>
+        	<td><?= $booking['customer_number'] ?></td>
+        	<td><?= $booking['date'] ?></td>
+        	<td><?= $booking['hour'] ?></td>
+        	<td><?= $booking['status'] ?></td>
+        	<td><?= $booking['comment'] ?></td>
+    		<td><button><a href=""><i class="fas fa-pen-nib"></i></a></button></td>
+    		<td><button><a href=""><i class="fas fa-trash-alt"></i></a></button></td>
+        </tr>
+    <?php endforeach; ?>
+</table>

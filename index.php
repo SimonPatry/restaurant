@@ -9,7 +9,6 @@ session_start();
 
 if (isset($_GET['page']))
 {
-	
 	switch($_GET['page'])
 	{
 		case 'admin':
@@ -31,7 +30,21 @@ if (isset($_GET['page']))
 		$controller -> display();
 		break;
 	}
-	
+}
+else if (isset($_GET['ajax']))
+{
+	switch($_GET['ajax'])
+	{
+		case 'categories':
+		$controller = new Controllers\DashboardController();
+		$controller -> displayCategories();
+		break;
+		
+		case 'booking':
+		$controller = new Controllers\DashboardController();
+		$controller -> displayBooking();
+		break;
+	}
 }
 else
 {
