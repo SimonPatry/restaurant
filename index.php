@@ -50,6 +50,10 @@ else if (isset($_GET['ajax']))
 			$controller = new Controllers\DashboardController();
 			$controller -> deleteBooking();
 			break;
+		case 'addBooking':
+			$controller = new Controllers\DashboardController();
+			$controller -> addBooking();
+			break;
 	}
 }
 else

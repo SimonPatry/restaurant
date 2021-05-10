@@ -1,7 +1,8 @@
 <h2>Gestion des réservations</h2>
 <table>
     <tr>
-        <th>Nombres de clients</th>
+        <th>Utilisateur</th>
+        <th>Nombre de clients</th>
         <th>Date</th>
         <th>Heure</th>
         <th>Statut</th>
@@ -11,6 +12,7 @@
     </tr>
     <?php foreach($bookingTable as $booking): ?>
         <tr>
+        	<td><?= $booking['first_name'] ?> <?= $booking['last_name'] ?></td>
 	    	<td><?= $booking['customer_number'] ?></td>
         	<td><?= $booking['date'] ?></td>
         	<td><?= $booking['hour'] ?></td>
@@ -20,13 +22,32 @@
     		<td><button><a class="deleteBooking" data-id="<?= $booking['id'] ?>" href=""><i class="fas fa-trash-alt"></i></a></button></td>
         </tr>
         <tr class="hide input" data-id="<?= $booking['id'] ?>" id="id<?= $booking['id'] ?>">
+            <td><select name="user" class="user">
+			    <?php foreach($usersTable as $user): ?>
+			        <option> <?= $user['first_name'] ?> <?= $user['last_name'] ?></option>
+			    <?php endforeach; ?>
+			</select></td>
 	    	<td><form><input type="text" class="number" name="number" value="<?= $booking['customer_number'] ?>"></form></td>
         	<td><form><input type="date" class="date" name="date" value="<?= $booking['date'] ?>"></form></td>
         	<td><form><input type="time" class="hour" name="hour" value="<?= $booking['hour'] ?>"></form></td>
             <td><form><input type="text" class="status" name="status" value="<?= $booking['status'] ?>"></form></td>
         	<td><form><input type="text" class="comment" name="comment" value="<?= $booking['comment'] ?>"></form></td>
-    		<td><button><a class="editBooking" data-id="<?= $booking['id'] ?>" href="" ?><i class="fas fa-pen-nib"></i></a></button></td>
+    		<td><button><a class="editBooking" data-id="<?= $booking['id'] ?>" data-user = "<?= $booking['id_user'] ?>" href="" ?><i class="fas fa-pen-nib"></i></a></button></td>
     		<td><button><a class="deleteBooking" data-id="<?= $booking['id'] ?>" href=""><i class="fas fa-trash-alt"></i></a></button></td>
         </tr>
     <?php endforeach; ?>
+        <tr id="add">
+            <td><select name="user" class="user">
+			    <?php foreach($usersTable as $user): ?>
+			        <option> <?= $user['first_name'] ?> <?= $user['last_name'] ?></option>
+			    <?php endforeach; ?>
+			</select></td>
+	    	<td><form><input type="text" class="number" name="number"></form></td>
+        	<td><form><input type="date" class="date" name="date"></form></td>
+        	<td><form><input type="time" class="hour" name="hour"></form></td>
+            <td><form><input type="text" class="status" name="status"></form></td>
+        	<td><form><input type="text" class="comment" name="comment"></form></td>
+    		<td></td>
+    		<td><button><a id="addBooking" href="" data-user = "<?= $booking['id_user'] ?>"><i class="fas fa-plus-square"></i></button></td>
+        </tr>
 </table>
