@@ -8,7 +8,7 @@ class Users extends Database
     {
         return $this -> findAll("
     	SELECT password, email, first_name, last_name, phone
-    	FROM admin");
+    	FROM users");
     }
     
     public function getUserByEmail(string $email):array
@@ -16,6 +16,6 @@ class Users extends Database
         return $this -> findOne("
     	SELECT password, email, first_name, last_name, phone
     	FROM admin
-    	WHERE email = ?", [$email]);
+    	WHERE users = ?", [$email]);
     }
 }
