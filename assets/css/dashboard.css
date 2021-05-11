@@ -1,0 +1,27 @@
+
+.menusTable {
+
+border: thin solid #6495ed;
+padding: 2px;
+font-weight:5rem;
+width:80%;
+margin:auto;
+}
+
+thead{
+    background-color: pink;
+    text-align:center;
+}
+th{
+    border: 1px solid black;
+}
+td img{
+    width : 30%;
+    margin:auto;
+}
+
+
+
+.hideMenus{
+  display: none;
+}

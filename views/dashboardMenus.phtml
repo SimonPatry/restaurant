@@ -1,0 +1,79 @@
+<table class = "menusTable" id="menusTable">
+    
+    <caption><strong>Gestion des Menus</strong></caption>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Alias</th>
+                <th>Title</th>
+                <th>Image</th>
+                <th>Categories</th>
+                <th>Price</th>
+                <th>Modifier</th>
+                <th>Supprimer</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+            
+            <?php foreach($menusTable as $menu): ?>
+            
+            <!-- Class Show visible de base -->
+                <tr>
+                
+                    <td> <?= htmlspecialchars($menu['id']) ?> </td>
+                    <td> <?= htmlspecialchars($menu['alias']) ?> </td>
+                    <td> <?= htmlspecialchars($menu['title']) ?> </td>
+                    <td> <img src="<?= htmlspecialchars($menu['src'])?>" alt ="<?= htmlspecialchars($menu['alt'])?>"> </td>
+                    <td> <?= htmlspecialchars($menu['id_category']) ?> </td>
+                    <td> <?= htmlspecialchars($menu['price']) ?> </td>
+                    <!-- Boutons data id quand je clic ca affiche l'autre class -->
+                    <td><button class="btn-modify" data-id="<?= $menu['id'] ?>" ><i class="fas fa-pen-nib"></i></button>
+                    </td>
+        	        <td><button class ="delete-menus" data-id="<?= $menu['id'] ?>"><i class="fas fa-trash-alt"></i></button></td>
+                </tr>  
+            <?php endforeach; ?>
+        </tbody>    
+    
+</table>          
+            
+             <!-- FORMULAIRE -->
+     
+        <form class="hideMenus" id ="formulaire" data-id="1" method="post" enctype="multipart/form-data">
+           <fieldset>
+               <legend><h2>Modifier un menu</h2></legend>
+                
+                <div class="hideMenus">
+                <label for="id">ID</label>
+                <input type="text" name ="id" value ="<?= htmlspecialchars($menu['id'] ) ?>" class="id-menus">
+                </div>
+                
+                <label for="alias">Alias</label>
+                <input name ="alias" type="text" value ="<?= htmlspecialchars( $menu['alias'] ) ?>" class="alias-menus">
+                
+                <label for="title">Title</label>
+                <input name ="title" type="text" value ="<?= htmlspecialchars( $menu['title'] ) ?>" class="title-menus">
+        
+                <label for="image">Image</label>
+                <input type="file" name="image" class="image-menus">
+                    <img src="<?= htmlspecialchars( $menu['src'] ) ?>" alt ="<?= htmlspecialchars( $menu['alt'] ) ?>">
+                    
+                <label for="alt">Alt</label>
+                <input name ="alt" type="text" value ="<?= htmlspecialchars( $menu['alt'] ) ?>" class="alt-menus">
+        
+        
+                <label for="categories">Categories</label>
+                <select class="categories-menus" name="categories">
+                    		<option value ="<?= htmlspecialchars( $menu['id_category']) ?>"><?= htmlspecialchars( $menu['id_category']) ?>
+                    		</option>
+                    		
+                </select>
+                
+                <label for="price">Prix</label>
+                <input name ="price" type="text" value ="<?= htmlspecialchars( $menu['price']) ?>" class="price-menus">
+            </fieldset>
+        <button type="button" id="add-edit" >Modifier le menu</button>
+        
+        
+        </form>       
+    
