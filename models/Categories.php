@@ -27,11 +27,9 @@ class Categories extends Database
     }
     public function delCategory($id)
     {
-        if(window.confirm("Etes vous sur de vouloir suppriemr cette catégorie ?")){
-            $this -> modifyOne("
-                DELETE FROM category
-                WHERE id = ?", [$id]);
-        }
+        $this -> modifyOne("
+            DELETE FROM category
+            WHERE id = ?", [$id]);
     }
     public function newCategory($datas)
     {

@@ -19,6 +19,7 @@ class CategoriesController
 		$datas = file_get_contents('php://input');
         
         $cat = json_decode($datas);
+        
         $datas = [$cat->name, $cat->is_dish, $cat->description, $cat->id];
 	    $this -> categories -> updateCategory($datas);
 		include "views/dashboardCategories.phtml";

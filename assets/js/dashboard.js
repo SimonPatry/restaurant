@@ -115,12 +115,14 @@ function showCategoryTable(event=null){
 }
 
 function delCategory(){
-    event.preventDefault();
-    let tr = this.parentNode.parentNode;
-    fetch(`index.php?ajax=delCatCategory&id=${tr.id}`)
-    .then(response => {
-        showCategoryTable();
-    });
+	if(window.confirm("Etes vous sur de vouloir suppriemr cette catégorie ?")){
+	    event.preventDefault();
+	    let tr = this.parentNode.parentNode;
+	    fetch(`index.php?ajax=delCategory&id=${tr.id}`)
+	    .then(response => {
+	        showCategoryTable();
+	    });
+	}
 }
 
 function addCategory(){
@@ -149,9 +151,8 @@ function editCategory(){
     let tr = this.parentNode.parentNode;
     tr.classList.toggle("hide");
     if (tr.dataset.id == 1){
-        console.log("hihi");
         tr.nextElementSibling.classList.toggle("hide");
-        cat = document.getElementById(tr.id);
+        let cat = document.getElementById(tr.id);
     	let  category = {
     		id: tr.querySelector(".id").value,
     		name: tr.querySelector(".name").value,
@@ -165,7 +166,7 @@ function editCategory(){
         	headers:{'Content-Type':'application/json'}
         }
         
-        fetch(`index.php?ajax=editCatCategory`, options)
+        fetch(`index.php?ajax=editCategory`, options)
         .then( function (){
 		    showCategoryTable();
 	    })
