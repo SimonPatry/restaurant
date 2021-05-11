@@ -77,7 +77,7 @@ class DashboardController
     public function deleteMenus()
     {
         $id = $_GET['id'];
-    	$this -> menus -> deleteMenus($id);
+    	$this -> menus -> deleteMenu($id);
     }
 		
 	public function display()

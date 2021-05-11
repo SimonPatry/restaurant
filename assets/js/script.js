@@ -12,7 +12,10 @@ function showMenusTable(event){
         let menus = document.querySelectorAll('.btn-modify')
         menus.forEach((menu)=>{
             menu.addEventListener('click',showForm);
-            
+        })
+        let delMenus = document.querySelectorAll('.delete-menus')
+        delMenus.forEach((deleteMenu)=>{
+            deleteMenu.addEventListener('click',deleteMenus);
         })
     });   
      
@@ -31,7 +34,6 @@ function showForm(event)
         
         //.then(response => response.text())
         //utilisation de la reponse
-        .then(response => console.log(response))
         .then(function(){
            
         })
@@ -70,18 +72,19 @@ function editMenu(event)
 
 //Delete
 	
-// 	function deleteMenus()
-// 	{
-// 	event.preventDefault();
-// 	let confirm = window.confirm("Voulez-vous supprimer le menus? Cette action est irréverssible")
-// 	    if(confirm)
-// 	    {
-// 	        let id = this.dataset.id;
-// 	        fetch(`index.php?ajax=deleteMenus&id=${id}`)
+function deleteMenus(event)
+{
+    event.preventDefault();
+    let confirm = window.confirm("Voulez-vous supprimer le menu? Cette action est irréversible")
+    if(confirm)
+	{
+	        let id = this.dataset.id;
+	        fetch(`index.php?ajax=deleteMenus&id=${id}`)
 	        
-// 	        .then(function(){showMenusTable(event);}) 
-// 	    }
-// 	}
+	        .then(function(){showMenusTable(event);}) 
+	}
+    
+}
 
 
 //DOM

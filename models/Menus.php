@@ -39,7 +39,7 @@ class Menus extends Database
     }
     
      //Supprimer 1 Menus
-    public function deleteMenus($id)
+    public function deleteMenu($id)
     {
     	$this -> modifyOne("
     	DELETE FROM menus
