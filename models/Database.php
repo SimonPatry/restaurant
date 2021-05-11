@@ -18,7 +18,6 @@ abstract class Database
 		return $query -> fetchAll(\PDO::FETCH_ASSOC);
 	}
 	
-	
 	public function findOne(string $req,array $params = []):array
 	{
 		$query = $this -> bdd -> prepare($req);
@@ -31,5 +30,4 @@ abstract class Database
 		$query = $this -> bdd -> prepare($req);
 		$query -> execute($params);
 	}
-	
 }

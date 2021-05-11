@@ -1,5 +1,3 @@
-
-
 function showBookingTable(event){
     event.preventDefault();
     fetch('index.php?ajax=booking')
@@ -54,11 +52,14 @@ function editBooking(event){
 
 function deleteBooking(event){
 	event.preventDefault();
-	let id = this.dataset.id;
-	fetch(`index.php?ajax=deleteBooking&id=${id}`)
-    .then(function(){
-		showBookingTable(event);
-	});
+	let confirm = window.confirm("Etes-vous sûr de vouloir supprimer cette réservation ?");
+    if (confirm){
+        let id = this.dataset.id;
+		fetch(`index.php?ajax=deleteBooking&id=${id}`)
+	    .then(function(){
+			showBookingTable(event);
+		});
+    }
 }
 
 function addBooking(event){

@@ -39,7 +39,7 @@ class DashboardController
 	{
 		$datas = file_get_contents('php://input');
 		$updateBooking = json_decode($datas);
-		$this -> bookings ->updateBooking($updateBooking -> number, $updateBooking -> date, $updateBooking -> hour, $updateBooking -> status, $updateBooking -> comment, $updateBooking -> user, $updateBooking -> id);
+		$this -> bookings -> updateBooking($updateBooking -> number, $updateBooking -> date, $updateBooking -> hour, $updateBooking -> status, $updateBooking -> comment, $updateBooking -> user, $updateBooking -> id);
 	}
 	
 	public function deleteBooking()

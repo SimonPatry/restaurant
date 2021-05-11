@@ -41,7 +41,6 @@ else if (isset($_GET['ajax']))
 			break;
 		
 		case 'editBooking':
-			
 			$controller = new Controllers\DashboardController();
 			$controller -> editBooking();
 			break;
