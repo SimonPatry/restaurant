@@ -50,6 +50,10 @@ else if (isset($_GET['ajax']))
 		$controller = new Controllers\DashboardController();
 		$controller -> getMenuDatas();
 		break;
+		case 'addMenu':
+		$controller = new Controllers\DashboardController();
+		$controller -> addMenu();
+		break;
 		case 'deleteMenus':
 		$controller = new Controllers\DashboardController();
 		$controller -> deleteMenus();

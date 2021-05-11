@@ -17,6 +17,8 @@ function showMenusTable(event){
         delMenus.forEach((deleteMenu)=>{
             deleteMenu.addEventListener('click',deleteMenus);
         })
+        
+        document.querySelector('.add-one-menu').addEventListener('click',showForm);
     });   
      
 }
@@ -35,10 +37,11 @@ function showForm(event)
         //.then(response => response.text())
         //utilisation de la reponse
         .then(function(){
-           
+       
         })
-   document.getElementById("add-edit").addEventListener('click',editMenu);
-   
+    document.getElementById("add-edit").addEventListener('click',editMenu);
+    
+    document.querySelector('.add-menus').addEventListener('click',addMenu);
 }        
         
 function editMenu(event)
@@ -50,9 +53,7 @@ function editMenu(event)
         let formData = new FormData(selectToggle); 
          
         // Le premier argument du constructeur est note url, le second est un objet option
-       
-        
-        
+         
         fetch('index.php?ajax=editMenus',
         {
             method: 'POST',
@@ -68,8 +69,31 @@ function editMenu(event)
 	    })
        
 }
+ //Ajouter un menu       
+function addMenu(event)
+{
+    event.preventDefault();
+    let selectToggle = document.getElementById('formulaire');
+    
+        let formData = new FormData(selectToggle); 
+         
         
-
+         
+        fetch('index.php?ajax=addMenu',
+        {
+            method: 'POST',
+            body: formData
+        })
+        
+       
+        //utilise la réponsephp
+        .then(function() 
+	    {
+            showMenusTable(event); 
+            selectToggle.classList.toggle("hideMenus");  
+	    })
+       
+}
 //Delete
 	
 function deleteMenus(event)

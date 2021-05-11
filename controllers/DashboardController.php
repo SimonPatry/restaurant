@@ -31,12 +31,8 @@ class DashboardController
 	public function editMenus()
 	{
 		//donnees formulaire 
-	
-	
 		//si on clic sur MODIFIER FORMULAIRE
-	
 			//alors on récupere les menus selectionner en fnct de son id
-			
 			
 			if(!empty($_POST))
 			{
@@ -47,7 +43,7 @@ class DashboardController
 				$alt = $_POST['alt'];
 				$categories = $_POST['categories'];
 				$price = $_POST['price'];
-				var_dump($_POST);
+				
 				// on recupere le nom de notre image (var_dump)
 				$image_name = $_FILES['image']['name'] ;
 	
@@ -62,6 +58,38 @@ class DashboardController
 				
 				//on appel la fonction qui va modifier les menus (UPTADE)
 				$this -> menus -> editMenus($title,$alias,$image,$alt,$price,$categories,$id);
+	
+			}
+	
+	}
+	
+	public function addMenu()
+	{
+			
+			if(!empty($_POST))
+			{
+				
+				$id = $_POST['id'];
+				$alias = $_POST['alias'];
+				$title = $_POST['title'];
+				$alt = $_POST['alt'];
+				$id_category = $_POST['categories'];
+				$price = $_POST['price'];
+			
+				// on recupere le nom de notre image (var_dump)
+				$image_name = $_FILES['image']['name'] ;
+	
+				// on recupere tmp de notre image qui est son chemin provisoire
+				$tmp_name = $_FILES['image']['tmp_name'];
+				
+				// on donne le nouveau chemin de notre image
+				$image = "assets/ressources/images/menus/$image_name";
+		
+			    //on donne le chemin d'acces pour l'image ancien chemin / nouveau chemin
+				move_uploaded_file($tmp_name, $image);
+				
+				//on appel la fonction qui va modifier les menus (UPTADE)
+				$this -> menus -> addMenus($title,$alias,$image,$alt,$price,$id_category);
 	
 			}
 	

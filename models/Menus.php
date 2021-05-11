@@ -23,6 +23,21 @@ class Menus extends Database
     	
     }
     
+    // ajouter les menus
+    public function addMenus($title,$alias,$image,$alt,$price,$id_category)
+    {
+    	$this -> modifyOne("
+    	INSERT INTO menus 
+    	(title,
+    	alias,
+    	src,
+    	alt,
+    	price,
+    	id_category)
+    	VALUES (?, ?, ?, ?, ?, ?)" ,[$title,$alias,$image,$alt,$price,$id_category]);
+    	
+    }
+    
     // editer les menus
     public function editMenus($title,$alias,$image,$alt,$price,$id_category,$id)
     {
