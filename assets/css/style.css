@@ -198,36 +198,7 @@ nav a.active {
 	color: white;
 }
 
-/* *****************************************************************
-DASHBOARD
-***************************************************************** */
 
-#gestion{
-	margin:1em;
-		display: flex;
-	flex-wrap:wrap;
-}
-
-#gestion ul{
-
-	flex-direction:column;
-}
-
-#categoriesTab{
-	margin:auto;
-	width:80%;
-	border-collapse:collapse;
-	border:1px solid black;
-}
-#categoriesTab tr,
-#categoriesTab th,
-#categoriesTab td{
-	border:1px solid black;
-}
-
-.hide{
-	display:none;
-}
 
 /* *****************************************************************
 MAIN
@@ -753,11 +724,4 @@ VERSION DESKTOP
 	form, video {
 		width: 70%;
 	}
-}
-
-/* *****************************************************************
-BACKOFFICE
-***************************************************************** */
-.hide {
-	display:none;
 }

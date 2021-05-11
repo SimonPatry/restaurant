@@ -39,38 +39,42 @@ else if (isset($_GET['ajax']))
 	switch($_GET['ajax'])
 	{
 		case 'booking':
-			$controller = new Controllers\DashboardController();
+			$controller = new Controllers\BookingController();
 			$controller -> displayBooking();
 			break;
 		
 		case 'editBooking':
-			$controller = new Controllers\DashboardController();
+			$controller = new Controllers\BookingController();
 			$controller -> editBooking();
 			break;
 			
 		case 'deleteBooking':
-			$controller = new Controllers\DashboardController();
+			$controller = new Controllers\BookingController();
 			$controller -> deleteBooking();
 			break;
 		case 'addBooking':
-			$controller = new Controllers\DashboardController();
+			$controller = new Controllers\BookingController();
 			$controller -> addBooking();
 			break;
 		case 'categories':
-			$controller = new Controllers\DashboardController();
+			$controller = new Controllers\CategoriesController();
 			$controller -> displayCategories();
 		break;
-		case 'editCat':
-			$controller = new Controllers\DashboardController();
+		case 'editCategory':
+			$controller = new Controllers\CategoriesController();
 			$controller -> editCategory();
 		break;
-		case 'addCat':
-			$controller = new Controllers\DashboardController();
+		case 'addCategory':
+			$controller = new Controllers\CategoriesController();
 			$controller -> addCategory();
 		break;
-		case 'delCat':
-			$controller = new Controllers\DashboardController();
+		case 'delCategory':
+			$controller = new Controllers\CategoriesController();
 			$controller -> deleteCategory($_GET['id']);
+		break;
+		case 'accueil':
+			$controller = new Controllers\DashboardController();
+			$controller -> displayAccueil();
 		break;
 	}
 }

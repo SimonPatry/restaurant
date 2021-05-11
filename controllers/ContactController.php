@@ -4,7 +4,6 @@ namespace Controllers;
 
 class ContactController
 {
-	private $model;
 	public $message;
 	public function __construct()
 	{
