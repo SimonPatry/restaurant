@@ -11,9 +11,12 @@ if(!isset($_SESSION['admin']))
 class DashboardMenusController 
 {
     private $menus;
+    private $menusTable;
+    private $categories;
 	public function __construct()
 	{
 		$this -> menus = new \Models\Menus();
+		$this -> categories = new \Models\Categories();
 	}
 	
 	
@@ -22,6 +25,7 @@ class DashboardMenusController
 	public function displayMenus()
 	{
 	    $menusTable = $this -> menus -> getAllMenus();
+	    $categories = $this -> categories -> getAllCategories();
 		include "views/dashboardMenus.phtml";
 	}
 	//edit 
@@ -65,7 +69,6 @@ class DashboardMenusController
 			
 			if(!empty($_POST))
 			{
-				
 				$id = $_POST['id'];
 				$alias = $_POST['alias'];
 				$title = $_POST['title'];
@@ -93,7 +96,7 @@ class DashboardMenusController
 	}
 	public function getMenuDatas()
 	{
-		$menu = $this -> menus -> getMenusById($_GET['id']);
+		$menus = $this -> menus -> getMenusById($_GET['id']);
 	}
 	
 	

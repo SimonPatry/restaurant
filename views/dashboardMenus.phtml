@@ -65,8 +65,8 @@
 
         <label for="categories">Categories</label>
         <select class="categories-menus" name="categories">
-            <?php foreach($menusTable as $menu): ?>
-            		<option value ="<?= htmlspecialchars( $menu['name']) ?>"><?= htmlspecialchars( $menu['name']) ?>
+            <?php foreach($categories as $category): ?>
+            		<option value ="<?= htmlspecialchars($category['id']) ?>"><?= htmlspecialchars($category['name']) ?>
             		</option>
             <?php endforeach; ?>		
         </select>

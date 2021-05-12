@@ -72,10 +72,7 @@ else if (isset($_GET['ajax']))
 			$controller = new Controllers\CategoriesController();
 			$controller -> deleteCategory($_GET['id']);
 		break;
-		case 'accueil':
-			$controller = new Controllers\DashboardController();
-			$controller -> displayAccueil();
-		break;
+	
 		
 		// Menus
 		case 'menus':
@@ -97,6 +94,28 @@ else if (isset($_GET['ajax']))
 		case 'deleteMenus':
 		$controller = new Controllers\DashboardMenusController();
 		$controller -> deleteMenus();
+		break;
+		
+		//Accueil
+		case 'accueil':
+		$controller = new Controllers\DashboardAccueilController();
+		$controller -> displayAccueil();
+		break;
+		case 'editAccueil':
+		$controller = new Controllers\DashboardAccueilController();
+		$controller -> editAccueil();
+		break;
+		case 'getAccueil':
+		$controller = new Controllers\DashboardAccueilController();
+		$controller -> getAccueilDatas();
+		break;
+		case 'addAccueil':
+		$controller = new Controllers\DashboardAccueilController();
+		$controller -> addAccueil();
+		break;
+		case 'deleteAccueil':
+		$controller = new Controllers\DashboardAccueilController();
+		$controller -> deleteAccueil();
 		break;
 	}
 }
