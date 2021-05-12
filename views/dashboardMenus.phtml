@@ -25,7 +25,7 @@
                     <td> <?= htmlspecialchars($menu['alias']) ?> </td>
                     <td> <?= htmlspecialchars($menu['title']) ?> </td>
                     <td> <img src="<?= htmlspecialchars($menu['src'])?>" alt ="<?= htmlspecialchars($menu['alt'])?>"> </td>
-                    <td> <?= htmlspecialchars($menu['id_category']) ?> </td>
+                    <td> <?= htmlspecialchars($menu['name']) ?> </td>
                     <td> <?= htmlspecialchars($menu['price']) ?> </td>
                     <!-- Boutons data id quand je clic ca affiche l'autre class -->
                     <td><button class="btn-modify" data-id="<?= $menu['id'] ?>" ><i class="fas fa-pen-nib"></i></button>
@@ -65,9 +65,10 @@
 
         <label for="categories">Categories</label>
         <select class="categories-menus" name="categories">
-            		<option value ="<?= htmlspecialchars( $menu['id_category']) ?>"><?= htmlspecialchars( $menu['id_category']) ?>
+            <?php foreach($menusTable as $menu): ?>
+            		<option value ="<?= htmlspecialchars( $menu['name']) ?>"><?= htmlspecialchars( $menu['name']) ?>
             		</option>
-            		
+            <?php endforeach; ?>		
         </select>
         
         <label for="price">Prix</label>
