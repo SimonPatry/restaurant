@@ -108,10 +108,6 @@ else if (isset($_GET['ajax']))
 			$controller = new Controllers\SliderController();
 			$controller -> editSliderImg();
 			break;
-		case 'getSlider':
-			$controller = new Controllers\SliderController();
-			$controller -> getSliderDatas();
-			break;
 		case 'addSliderImg':
 			$controller = new Controllers\SliderController();
 			$controller -> addSliderImg();

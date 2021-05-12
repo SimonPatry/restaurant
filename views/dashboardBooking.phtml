@@ -25,7 +25,7 @@
             <form>
                 <td><select name="user" class="user">
     			    <?php foreach($usersTable as $user): ?>
-    			        <option> <?= $user['first_name'] ?> <?= $user['last_name'] ?></option>
+    			        <option user="<?= $user['first_name'] ?>"> <?= $user['first_name'] ?> <?= $user['last_name'] ?></option>
     			    <?php endforeach; ?>
     			</select></td>
     	    	<td><input type="text" class="number" name="number" value="<?= $booking['customer_number'] ?>"></td>

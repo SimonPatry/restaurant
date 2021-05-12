@@ -15,14 +15,6 @@ class SliderController extends DashboardController
 		include "views/dashboardSlider.phtml";
 	}
 	
-	public function getSliderDatas()
-	{
-		$slider = $this -> slider -> getImageById($_GET['id']);
-	}
-	
-	
-	
-	
 	public function editSliderImg()
 	{
 		//donnees formulaire 
@@ -31,7 +23,6 @@ class SliderController extends DashboardController
 			
 			if(!empty($_POST))
 			{
-				
 				$id = $_POST['id'];
 				$alt = $_POST['alt'];
 				$published = $_POST['published'];

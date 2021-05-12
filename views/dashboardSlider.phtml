@@ -35,30 +35,30 @@
 <button type="button" class="add-image" >Ajouter une image</button>            
              <!-- FORMULAIRE -->
 <?php foreach($sliderTable as $slider): ?>
-<form class="hide formulaire" data-id="<?= $slider['id'] ?>" method="post" enctype="multipart/form-data">
-   <fieldset>
-       <legend><h2>Modifier un menu</h2></legend>
-        
-        <div class="hide">
-        <label for="id">ID</label>
-        <input type="text" name ="id" value="<?= $slider['id'] ?>">
-        </div>
-
-        <label for="image">Image</label>
-        <input type="file" name="image" value="<?= $slider['src'] ?>">
-        <img src="<?= htmlspecialchars( $slider['src'] ) ?>" alt ="<?= htmlspecialchars( $slider['alt'] ) ?>">  
+    <form class="hide formulaire" data-id="<?= $slider['id'] ?>" method="post" enctype="multipart/form-data">
+        <fieldset>
+           <legend><h2>Modifier un menu</h2></legend>
             
-        <label for="alt">Alt</label>
-        <input name ="alt" type="text" value="<?= $slider['alt'] ?>">
-        
-        <label for="published">Publié</label>
-        <input name ="published" type="text" value="<?= $slider['published'] ?>">
-        
-        <label for="poids">Poids</label>
-        <input name ="poids" type="text" value="<?= $slider['poids'] ?>">
-    </fieldset>
-<button type="button" class="edit-slider">Modifier le slider</button>
-</form>  
+            <div class="hide">
+            <label for="id">ID</label>
+            <input type="text" name ="id" value="<?= $slider['id'] ?>">
+            </div>
+    
+            <label for="image">Image</label>
+            <input type="file" name="image" value="<?= $slider['src'] ?>">
+            <img src="<?= htmlspecialchars( $slider['src'] ) ?>" alt ="<?= htmlspecialchars( $slider['alt'] ) ?>">  
+                
+            <label for="alt">Alt</label>
+            <input name ="alt" type="text" value="<?= $slider['alt'] ?>">
+            
+            <label for="published">Publié</label>
+            <input name ="published" type="text" value="<?= $slider['published'] ?>">
+            
+            <label for="poids">Poids</label>
+            <input name ="poids" type="text" value="<?= $slider['poids'] ?>">
+        </fieldset>
+        <button type="button" class="edit-slider">Modifier le slider</button>
+    </form>  
 <?php endforeach; ?>   
 
 <form class="hide" id="addForm" method="post" enctype="multipart/form-data">
