@@ -2,6 +2,7 @@
 
 namespace Controllers;
 
+
 class AccueilController
 {
 	public function display()

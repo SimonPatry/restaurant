@@ -1,7 +1,66 @@
-<section>
-</section>
-<section>
-    <form method='post' enctype="">
+<table class = "accueilTable" id="accueilTable">
+    
+    <caption><strong>Gestion de l'accueil</strong></caption>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Content</th>
+                <th>Source</th>
+                <th>Alt</th>
+                <th>Modifier</th>
+                <th>Supprimer</th>
+            </tr>
+        </thead>
         
+        <tbody>
+            
+            <?php foreach($accueilTable as $accueil): ?>
+            
+            <!-- Class Show visible de base -->
+                <tr>
+                    <td> <?= htmlspecialchars($accueil['id']) ?> </td>
+                    <td> <?= htmlspecialchars($accueil['name']) ?> </td>
+                    <td> <?= htmlspecialchars($accueil['content']) ?> </td>
+                    <td> <img src="<?= htmlspecialchars($accueil['src'])?>" alt ="<?= htmlspecialchars($accueil['alt'])?>"> </td>
+                    <td> <?= htmlspecialchars($accueil['alt']) ?> </td>
+                   
+                    <!-- Boutons data id quand je clic ca affiche l'autre class -->
+                    <td><button class ="btn-accueil" type="button" data-id="<?= $accueil['id'] ?>" ><i class="fas fa-pen-nib"></i></button>
+                    </td>
+        	        <td><button type="button" class="sup-accueil" data-id="<?= $accueil['id'] ?>"><i class="fas fa-trash-alt"></i></button></td>
+                </tr>  
+            <?php endforeach; ?>
+        </tbody>    
+    
+</table>         
+<button type="button" class="add-one-accueil" >Ajouter à la page</button>  
+    
+    <form method='post' class="hide" id="formulaire" data-id="1" enctype="multipart/form-data">
+        <fieldset>
+            <legend><h2>Modifier la page d'accueil</h2></legend>
+            
+            
+            <div class="hide">
+                <label for="id">ID</label>
+                <input type="text" name ="id" value ="<?= htmlspecialchars($accueil['id']) ?>">
+            </div>
+        
+            <label for ="name">Name</label>
+            <input type ="text" name ="name" value ="<?= htmlspecialchars($accueil['name'] ) ?>">
+            
+            <label for ="text">Description</label>
+            <input type ="text" name ="text" value ="<?= htmlspecialchars($accueil['content'] ) ?>">
+            
+            <label for ="image">Source de l'image</label>
+            <input type ="file" name ="image" value ="<?= htmlspecialchars($accueil['src'] ) ?>">
+            
+            <label for ="alt">Alt de l'image</label>
+            <input type ="text" name ="alt" value ="<?= htmlspecialchars($accueil['alt'] ) ?>">
+            
+            </fieldset>
+            
+            <button type="button" id="add-edit-accueil" >Modifier</button>
+            <button type="button" class="add-accueil">Ajouter</button>
+            
     </form>
-</section>

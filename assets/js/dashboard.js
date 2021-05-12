@@ -163,13 +163,6 @@ function editCategory(){
     }
 }
 
-function showAccueil(){
-    fetch(`index.php?ajax=accueil`)
-    .then(response => response.text())
-    .then(response => {
-        document.getElementById("gestion").innerHTML = response;
-    });
-}
 
 /********************************************************/
 /*                      MENUS
@@ -251,6 +244,7 @@ function addMenu(event)
     let selectToggle = document.getElementById('formulaire');
     
         let formData = new FormData(selectToggle); 
+
         fetch('index.php?ajax=addMenu',
         {
             method: 'POST',
@@ -475,7 +469,114 @@ function deleteMeal(event)
 /*                      DOM
 /********************************************************/
 
+//     ///////////////// ACCUEIL  ///////////////// //
+// fonction pour afficher le contenu du dashbord en ajax 
+function showAccueilTable(event){
+    event.preventDefault();
+    fetch("index.php?ajax=accueil")
+    .then(response => response.text())
+    //utilise la réponse
+    .then(response => {
+        //on affiche dans le phtml de dashboard id gestion
+        document.getElementById("gestion").innerHTML = response;
+        //sur quel bouton il clic
+        let modifaccueil = document.querySelectorAll('.btn-accueil')
+        modifaccueil.forEach((accu)=>{
+            accu.addEventListener('click',showFormAccueil);
+        })
+        let delAccueil = document.querySelectorAll('.sup-accueil')
+        delAccueil.forEach((deleteacc)=>{
+            deleteacc.addEventListener('click',deleteAccueil);
+        })
+        
+        document.querySelector('.add-one-accueil').addEventListener('click',showFormAccueil);
+    });   
+     
+}
+
+function showFormAccueil(event)
+{
+    event.preventDefault();
+    let id = this.dataset.id;
+    //AFFICHER LE FORMULAIRE
+    let selectToggle = document.getElementById('formulaire');
+    selectToggle.classList.toggle("hide");
+        
+        fetch(`index.php?ajax=getAccueil&id=${id}`)
+        
+        
+        //.then(response => response.text())
+        //utilisation de la reponse
+        .then(function(){
+       
+        })
+    document.getElementById("add-edit-accueil").addEventListener('click',editAccueil);
+    
+    document.querySelector('.add-accueil').addEventListener('click',addAccueil);
+}        
+        
+function editAccueil(event)
+{
+    event.preventDefault();
+    let selectToggle = document.getElementById('formulaire');
+   
+        let formData = new FormData(selectToggle); 
+
+        fetch('index.php?ajax=editAccueil',
+        {
+            method: 'POST',
+            body: formData
+        })
+        
+        //utilise la réponsephp
+        .then(function() 
+	    {
+            showAccueilTable(event); 
+            selectToggle.classList.toggle("hide");  
+	    })
+       
+}
+    
+function addAccueil(event)
+{
+    event.preventDefault();
+    let selectToggle = document.getElementById('formulaire');
+    
+        let formData = new FormData(selectToggle); 
+        fetch('index.php?ajax=addAccueil',
+        {
+            method: 'POST',
+            body: formData
+        })
+      
+        //utilise la réponsephp
+        .then(function() 
+	    {
+            showAccueilTable(event); 
+            selectToggle.classList.toggle("hide");  
+	    })
+       
+}
+//Delete
+	
+function deleteAccueil(event)
+{
+    event.preventDefault();
+    let confirm = window.confirm("Voulez-vous supprimer le contenu? Cette action est irréversible")
+    if(confirm)
+	{
+	        let id = this.dataset.id;
+	        fetch(`index.php?ajax=deleteAccueil&id=${id}`)
+	        
+	        .then(function(){showAccueilTable(event);}) 
+	}
+    
+}
+
+
+
 document.addEventListener("DOMContentLoaded",function(){
+    document.getElementById('gestionAccueil').addEventListener('click',showAccueilTable);
     document.getElementById('gestionCategory').addEventListener("click", showCategoryTable);
     document.getElementById('gestionBooking').addEventListener('click',showBookingTable);
     document.getElementById('gestionMenus').addEventListener('click',showMenusTable);
