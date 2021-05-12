@@ -10,7 +10,9 @@ if(!isset($_SESSION['admin']))
 
 class DashboardController
 {
+
 	private $accueil;
+	
 	public function __construct()
 	{
 		$this -> accueil = new \Models\Accueil();
@@ -21,6 +23,7 @@ class DashboardController
 		var_dump($infos);
 		include 'views/dashboardAccueil.phtml';
 	}
+	
 	public function display()
 	{
 		$template = "views/dashboard.phtml";

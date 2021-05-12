@@ -30,4 +30,5 @@ abstract class Database
 		$query = $this -> bdd -> prepare($req);
 		$query -> execute($params);
 	}
+
 }

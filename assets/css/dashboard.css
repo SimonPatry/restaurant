@@ -1,3 +1,19 @@
 .hide{
     display:none;
 }
+img{
+    width:15%;
+}
+.menusTable {
+width:80%;
+margin:auto;
+}
+
+thead{
+    background-color: pink;
+    text-align:center;
+}
+
+td img{
+    margin:auto;
+}

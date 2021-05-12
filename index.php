@@ -7,7 +7,7 @@ spl_autoload_register(function ($class_name) {
 
 session_start();
 
-if (isset($_GET['page']))
+if (isset($_GET['page']) && !isset($_GET['ajax']))
 {
 	switch($_GET['page'])
 	{
@@ -76,8 +76,31 @@ else if (isset($_GET['ajax']))
 			$controller = new Controllers\DashboardController();
 			$controller -> displayAccueil();
 		break;
+		
+		// Menus
+		case 'menus':
+		$controller = new Controllers\DashboardMenusController();
+		$controller -> displayMenus();
+		break;
+		case 'editMenus':
+		$controller = new Controllers\DashboardMenusController();
+		$controller -> editMenus();
+		break;
+		case 'getMenu':
+		$controller = new Controllers\DashboardMenusController();
+		$controller -> getMenuDatas();
+		break;
+		case 'addMenu':
+		$controller = new Controllers\DashboardMenusController();
+		$controller -> addMenu();
+		break;
+		case 'deleteMenus':
+		$controller = new Controllers\DashboardMenusController();
+		$controller -> deleteMenus();
+		break;
 	}
 }
+
 else
 {
 	$controller = new Controllers\AccueilController();
