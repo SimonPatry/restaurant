@@ -1,4 +1,4 @@
-<table class = "menusTable" id="menusTable">
+<table>
     
     <caption><strong>Gestion du Slider</strong></caption>
         <thead>
@@ -34,8 +34,8 @@
 
 <button type="button" class="add-image" >Ajouter une image</button>            
              <!-- FORMULAIRE -->
-
-<form class="hide" id="formulaire" data-id="<?= $slider['id'] ?>" method="post" enctype="multipart/form-data">
+<?php foreach($sliderTable as $slider): ?>
+<form class="hide formulaire" data-id="<?= $slider['id'] ?>" method="post" enctype="multipart/form-data">
    <fieldset>
        <legend><h2>Modifier un menu</h2></legend>
         
@@ -58,12 +58,37 @@
         <input name ="poids" type="text" value="<?= $slider['poids'] ?>">
     </fieldset>
 <button type="button" class="edit-slider">Modifier le slider</button>
-
-<button type="button" class="add-slider">Ajouter le slider</button>
-
-
 </form>  
-   
+<?php endforeach; ?>   
+
+<form class="hide" id="addForm" method="post" enctype="multipart/form-data">
+   <fieldset>
+       <legend><h2>Modifier un menu</h2></legend>
+        
+        <div class="hide">
+        <label for="id">ID</label>
+        <input type="text" name ="id">
+        </div>
+
+        <label for="image">Image</label>
+        <input type="file" name="image" >
+            
+        <label for="alt">Alt</label>
+        <input name ="alt" type="text">
+        
+        <label for="published">Publié</label>
+        <input name ="published" type="text">
+        
+        <label for="poids">Poids</label>
+        <input name ="poids" type="text">
+    </fieldset>
+<button type="button" class="add-slider">Ajouter le slider</button>
+</form>  
+
+
+
+
+
         
 
  

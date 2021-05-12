@@ -52,7 +52,7 @@ class SliderController extends DashboardController
     				move_uploaded_file($tmp_name, $image);
                 }
                 else {
-                    $slider = $this -> getImageById($id);
+                    $slider = $this -> slider -> getImageById($id);
                     $image = $slider['src'];
                 }
 				

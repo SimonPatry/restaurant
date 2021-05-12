@@ -313,7 +313,7 @@ function showSliderTable(event){
             img.addEventListener('click',deleteSliderImg);
         });
         
-        document.querySelector('.add-image').addEventListener('click',showSliderForm);
+        document.querySelector('.add-image').addEventListener('click',showAddSliderForm);
 	});
 }
 
@@ -322,26 +322,30 @@ function showSliderForm(event)
     event.preventDefault();
     let id = this.dataset.id;
     //AFFICHER LE FORMULAIRE
-    let form = document.getElementById('formulaire');
-    form.classList.toggle("hide");
-        
-        fetch(`index.php?ajax=getSliderDatas&id=${id}`)
-        
-        
-        //.then(response => response.text())
-        //utilisation de la reponse
-        .then(function(){
-       
-        })
-    document.querySelector(".edit-slider").addEventListener('click',editSlider);
-    
-    document.querySelector('.add-slider').addEventListener('click',addSliderImg);
-}        
-     
-function addSliderImg(event)
+    let forms = document.querySelectorAll('.formulaire');
+    forms.forEach((form)=>{
+        if (form.dataset.id == id)
+            form.classList.toggle("hide");
+    });
+    document.querySelectorAll(".edit-slider").forEach((img)=>{
+            img.addEventListener('click',editSlider);
+    });
+}      
+
+function showAddSliderForm(event)
 {
     event.preventDefault();
-    let form = document.getElementById('formulaire');
+    //AFFICHER LE FORMULAIRE
+    let form = document.querySelector('#addForm');
+    form.classList.toggle("hide");
+    document.querySelector('.add-slider').addEventListener('click',addSliderImg);
+}     
+
+function addSliderImg(event)
+{
+    console.log('toto');
+    event.preventDefault();
+    let form = document.getElementById('addForm');
     
         let formData = new FormData(form); 
          
@@ -363,7 +367,8 @@ function addSliderImg(event)
 function editSlider(event)
 {
     event.preventDefault();
-    let form = document.getElementById('formulaire');
+    let form = this.parentNode;
+    console.log(form);
     // selectToggle.classList.toggle("hideMenus");
      // récupération du formulaire automatique (pour gerer les $_FILES et les POST)
         let formData = new FormData(form); 
