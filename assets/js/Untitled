@@ -1,0 +1,20 @@
+case 'Meals':
+		$controller = new Controllers\DashboardMealsController();
+		$controller -> displayMeals();
+		break;
+		case 'editMeals':
+		$controller = new Controllers\DashboardMealsController();
+		$controller -> editMeals();
+		break;
+		case 'getMeal':
+		$controller = new Controllers\DashboardMealsController();
+		$controller -> getMealDatas();
+		break;
+		case 'addMeal':
+		$controller = new Controllers\DashboardMealsController();
+		$controller -> addMeal();
+		break;
+		case 'deleteMeals':
+		$controller = new Controllers\DashboardMealsController();
+		$controller -> deleteMeals();
+		break;

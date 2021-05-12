@@ -79,25 +79,25 @@ else if (isset($_GET['ajax']))
 		
 		// Menus
 		case 'menus':
-		$controller = new Controllers\DashboardMenusController();
-		$controller -> displayMenus();
-		break;
+			$controller = new Controllers\DashboardMenusController();
+			$controller -> displayMenus();
+			break;
 		case 'editMenus':
-		$controller = new Controllers\DashboardMenusController();
-		$controller -> editMenus();
-		break;
+			$controller = new Controllers\DashboardMenusController();
+			$controller -> editMenus();
+			break;
 		case 'getMenu':
-		$controller = new Controllers\DashboardMenusController();
-		$controller -> getMenuDatas();
-		break;
+			$controller = new Controllers\DashboardMenusController();
+			$controller -> getMenuDatas();
+			break;
 		case 'addMenu':
-		$controller = new Controllers\DashboardMenusController();
-		$controller -> addMenu();
-		break;
+			$controller = new Controllers\DashboardMenusController();
+			$controller -> addMenu();
+			break;
 		case 'deleteMenus':
-		$controller = new Controllers\DashboardMenusController();
-		$controller -> deleteMenus();
-		break;
+			$controller = new Controllers\DashboardMenusController();
+			$controller -> deleteMenus();
+			break;
 		
 		//Slider
 		case 'slider':
@@ -116,7 +116,26 @@ else if (isset($_GET['ajax']))
 			$controller = new Controllers\SliderController();
 			$controller -> deleteSliderImg();
 			break;
-		
+		case 'meals':
+			$controller = new Controllers\DashboardMeals();
+			$controller -> displayMeals();
+			break;
+		case 'editMeal':
+			$controller = new Controllers\DashboardMeals();
+			$controller -> editMeal();
+			break;
+		case 'getMeal':
+			$controller = new Controllers\DashboardMeals();
+			$controller -> getMealDatas();
+			break;
+		case 'addMeal':
+			$controller = new Controllers\DashboardMeals();
+			$controller -> addMeal();
+			break;
+		case 'delMeal':
+			$controller = new Controllers\DashboardMeals();
+			$controller -> deleteMeal();
+			break;
 	}
 }
 
