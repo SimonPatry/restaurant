@@ -48,15 +48,14 @@
         
         <label for="categories">Categories</label>
         <select class="categories-meals" name="categories">
-            <?php foreach($mealsTable as $meal): ?>
-            	<option value ="<?= htmlspecialchars( $meal['name']) ?>"><?= htmlspecialchars( $meal['name']) ?>
+            <?php foreach($categories as $category): ?>
+            	<option value ="<?= htmlspecialchars( $category['id']) ?>"><?= htmlspecialchars( $category['name']) ?>
             	</option>
             <?php endforeach; ?>
         </select>
-        
     </fieldset>
 <button type="button" id="addEdit" >Modifier le Plat</button>
 
-<button type="button" class="addMeal" >Ajouter le Plat</button>
+<button type="button" id="addMeal" >Ajouter le Plat</button>
 
 </form>

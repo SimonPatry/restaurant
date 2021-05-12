@@ -111,11 +111,10 @@ else if (isset($_GET['ajax']))
 		$controller -> getMealDatas();
 		break;
 		case 'addMeal':
-		var_dump($_POST);
 		$controller = new Controllers\DashboardMeals();
 		$controller -> addMeal();
 		break;
-		case 'deleteMeal':
+		case 'delMeal':
 		$controller = new Controllers\DashboardMeals();
 		$controller -> deleteMeal();
 		break;

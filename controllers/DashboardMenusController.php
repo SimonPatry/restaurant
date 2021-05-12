@@ -33,7 +33,7 @@ class DashboardMenusController
 			
 			if(!empty($_POST))
 			{
-				
+				var_dump("je passe pas la");
 				$id = $_POST['id'];
 				$alias = $_POST['alias'];
 				$title = $_POST['title'];

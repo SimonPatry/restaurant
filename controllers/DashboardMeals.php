@@ -11,13 +11,16 @@ if(!isset($_SESSION['admin']))
 class DashboardMeals
 {
     private $meals;
+    private $categories;
 	public function __construct()
 	{
 		$this -> meals = new \Models\Meals();
+		$this -> categories = new \Models\Categories();
 	}
 	public function displayMeals()
 	{
 	    $mealsTable = $this -> meals -> getAllMeals();
+	    $categories = $this -> categories -> getAllCategories();
 		include "views/dashboardMeals.phtml";
 	}
 	public function editMeal()
@@ -62,6 +65,7 @@ class DashboardMeals
     public function deleteMeal()
     {
         $id = $_GET['id'];
+        var_dump($id);
     	$this -> meals -> deleteMeal($id);
     }
     

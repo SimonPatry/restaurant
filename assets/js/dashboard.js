@@ -297,13 +297,12 @@ function showMealsTable(event){
     .then(response => response.text())
     .then(response => {
         document.getElementById("gestion").innerHTML = response;
+        console.log(response);
         document.querySelectorAll('.editMeal').forEach((menu)=>{
-            menu.addEventListener('click',showMealForm);
-            document.querySelector('.newMeal').addEventListener('click',showMealForm);
-        })
+            menu.addEventListener('click',showMealForm);})
         document.querySelectorAll('.delMeal').forEach((deleteMenu)=>{
-            deleteMenu.addEventListener('click',deleteMeal);
-        })
+            deleteMenu.addEventListener('click',deleteMeal);})
+        document.querySelector('.newMeal').addEventListener('click',showMealForm);
     });
      
 }
@@ -313,11 +312,10 @@ function showMealForm(event)
     event.preventDefault();
     let selectToggle = document.getElementById('mealForm');
     selectToggle.classList.toggle("hide");
-        
     document.getElementById("addEdit").addEventListener('click',editMeal);
-    document.querySelector('.addMeal').addEventListener('click',addMeal);
-}        
-        
+    document.getElementById('addMeal').addEventListener('click',addMeal);
+}
+
 function editMeal(event)
 {
     event.preventDefault();
@@ -326,7 +324,7 @@ function editMeal(event)
     fetch('index.php?ajax=editMeal',
     {
         method: 'POST',
-        body: formData
+        body: formData,
     })
     .then( function() {
         showMealsTable(event); 
@@ -342,7 +340,7 @@ function addMeal(event)
     fetch('index.php?ajax=addMeal',
     {
         method: 'POST',
-        body: formData
+        body: formData,
     })
     .then(function() 
     {
@@ -357,11 +355,11 @@ function deleteMeal(event)
     let confirm = window.confirm("Voulez-vous supprimer le plat? Cette action est irréversible")
     if(confirm)
 	{
-	        let id = this.dataset.id;
-	        fetch(`index.php?ajax=delMeal&id=${id}`)
-	        .then( function(){
-	            showMealsTable(event);
-	        }) 
+        let id = this.dataset.id;
+        fetch(`index.php?ajax=delMeal&id=${id}`)
+        .then( function(){
+            showMealsTable(event);
+        }) 
 	}
     
 }
@@ -372,9 +370,9 @@ function deleteMeal(event)
 /********************************************************/
 
 document.addEventListener("DOMContentLoaded",function(){
-    showAccueil();
     document.getElementById('gestionCategory').addEventListener("click", showCategoryTable);
     document.getElementById('gestionBooking').addEventListener('click',showBookingTable);
     document.getElementById('gestionMenus').addEventListener('click',showMenusTable);
     document.getElementById('gestionMeals').addEventListener('click',showMealsTable);
+    
 });
