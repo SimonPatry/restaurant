@@ -188,7 +188,6 @@ function showAccueil(){
 //MENUS
 // fonction pour afficher le contenu du dashbord en ajax 
 function showMenusTable(event){
-    
     event.preventDefault();
     fetch("index.php?ajax=menus")
     .then(response => response.text())
