@@ -98,6 +98,29 @@ else if (isset($_GET['ajax']))
 		$controller = new Controllers\DashboardMenusController();
 		$controller -> deleteMenus();
 		break;
+		
+		//Slider
+		case 'slider':
+			$controller = new Controllers\SliderController();
+			$controller -> displaySlider();
+			break;
+		case 'editSlider':
+			$controller = new Controllers\SliderController();
+			$controller -> editSliderImg();
+			break;
+		case 'getSlider':
+			$controller = new Controllers\SliderController();
+			$controller -> getSliderDatas();
+			break;
+		case 'addSliderImg':
+			$controller = new Controllers\SliderController();
+			$controller -> addSliderImg();
+			break;
+		case 'deleteSliderImg':
+			$controller = new Controllers\SliderController();
+			$controller -> deleteSliderImg();
+			break;
+		
 	}
 }
 

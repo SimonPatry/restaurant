@@ -1,0 +1,73 @@
+<table class = "menusTable" id="menusTable">
+    
+    <caption><strong>Gestion du Slider</strong></caption>
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Alt</th>
+                <th>Publié</th>
+                <th>Poids</th>
+                <th>Modifier</th>
+                <th>Supprimer</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+            
+            <?php foreach($sliderTable as $slider): ?>
+            
+            <!-- Class Show visible de base -->
+                <tr>
+                    <td> <img src="<?= htmlspecialchars($slider['src'])?>" alt ="<?= htmlspecialchars($slider['alt'])?>"> </td>
+                    <td> <?= htmlspecialchars($slider['alt']) ?> </td>
+                    <td> <?= htmlspecialchars($slider['published']) ?> </td>
+                    <td> <?= htmlspecialchars($slider['poids']) ?> </td>
+                    <!-- Boutons data id quand je clic ca affiche l'autre class -->
+                    <td><button class="btn-modify" data-id="<?= $slider['id'] ?>" ><i class="fas fa-pen-nib"></i></button>
+                    </td>
+        	        <td><button type ="button" class ="btn-delete" data-id="<?= $slider['id'] ?>"><i class="fas fa-trash-alt"></i></button></td>
+                </tr>  
+            <?php endforeach; ?>
+        </tbody>    
+    
+</table>          
+
+<button type="button" class="add-image" >Ajouter une image</button>            
+             <!-- FORMULAIRE -->
+
+<form class="hide" id="formulaire" data-id="<?= $slider['id'] ?>" method="post" enctype="multipart/form-data">
+   <fieldset>
+       <legend><h2>Modifier un menu</h2></legend>
+        
+        <div class="hide">
+        <label for="id">ID</label>
+        <input type="text" name ="id" value="<?= $slider['id'] ?>">
+        </div>
+
+        <label for="image">Image</label>
+        <input type="file" name="image" value="<?= $slider['src'] ?>">
+        <img src="<?= htmlspecialchars( $slider['src'] ) ?>" alt ="<?= htmlspecialchars( $slider['alt'] ) ?>">  
+            
+        <label for="alt">Alt</label>
+        <input name ="alt" type="text" value="<?= $slider['alt'] ?>">
+        
+        <label for="published">Publié</label>
+        <input name ="published" type="text" value="<?= $slider['published'] ?>">
+        
+        <label for="poids">Poids</label>
+        <input name ="poids" type="text" value="<?= $slider['poids'] ?>">
+    </fieldset>
+<button type="button" class="edit-slider">Modifier le slider</button>
+
+<button type="button" class="add-slider">Ajouter le slider</button>
+
+
+</form>  
+   
+        
+
+ 
+ 
+    
+    
+   

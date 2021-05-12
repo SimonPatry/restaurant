@@ -220,11 +220,10 @@ function showForm(event)
         
         fetch(`index.php?ajax=getMenu&id=${id}`)
         
-        
         //.then(response => response.text())
         //utilisation de la reponse
         .then(function(){
-       
+            
         })
     document.getElementById("add-edit").addEventListener('click',editMenu);
     
@@ -263,9 +262,6 @@ function addMenu(event)
     let selectToggle = document.getElementById('formulaire');
     
         let formData = new FormData(selectToggle); 
-         
-        
-         
         fetch('index.php?ajax=addMenu',
         {
             method: 'POST',
@@ -298,6 +294,110 @@ function deleteMenus(event)
 }
 
 
+//Gestion du slider
+
+function showSliderTable(event){
+    event.preventDefault();
+    fetch('index.php?ajax=slider')
+    //analyser la réponse
+	.then(response => response.text())
+	//utilise la réponse
+	.then(response => {
+		document.getElementById("gestion").innerHTML = response;
+		let editbtn = document.querySelectorAll('.btn-modify');
+        editbtn.forEach((img)=>{
+            img.addEventListener('click',showSliderForm);
+        });
+        let deletebtn = document.querySelectorAll('.btn-delete');
+        deletebtn.forEach((img)=>{
+            img.addEventListener('click',deleteSliderImg);
+        });
+        
+        document.querySelector('.add-image').addEventListener('click',showSliderForm);
+	});
+}
+
+function showSliderForm(event)
+{
+    event.preventDefault();
+    let id = this.dataset.id;
+    //AFFICHER LE FORMULAIRE
+    let form = document.getElementById('formulaire');
+    form.classList.toggle("hide");
+        
+        fetch(`index.php?ajax=getSliderDatas&id=${id}`)
+        
+        
+        //.then(response => response.text())
+        //utilisation de la reponse
+        .then(function(){
+       
+        })
+    document.querySelector(".edit-slider").addEventListener('click',editSlider);
+    
+    document.querySelector('.add-slider').addEventListener('click',addSliderImg);
+}        
+     
+function addSliderImg(event)
+{
+    event.preventDefault();
+    let form = document.getElementById('formulaire');
+    
+        let formData = new FormData(form); 
+         
+        fetch('index.php?ajax=addSliderImg',
+        {
+            method: 'POST',
+            body: formData
+        })
+       
+        //utilise la réponsephp
+        .then(function() 
+	    {
+            showSliderTable(event); 
+            form.classList.toggle("hide");  
+	    });
+       
+}
+
+function editSlider(event)
+{
+    event.preventDefault();
+    let form = document.getElementById('formulaire');
+    // selectToggle.classList.toggle("hideMenus");
+     // récupération du formulaire automatique (pour gerer les $_FILES et les POST)
+        let formData = new FormData(form); 
+         
+        // Le premier argument du constructeur est note url, le second est un objet option
+         
+        fetch('index.php?ajax=editSlider',
+        {
+            method: 'POST',
+            body: formData
+        })
+        
+       
+        //utilise la réponsephp
+        .then(function() 
+	    {
+            showSliderTable(event); 
+            form.classList.toggle("hide");  
+	    })
+}
+
+function deleteSliderImg(event)
+{
+    event.preventDefault();
+    let confirm = window.confirm("Voulez-vous supprimer cette image du slider ?")
+    if(confirm)
+	{
+	        let id = this.dataset.id;
+	        fetch(`index.php?ajax=deleteSliderImg&id=${id}`)
+	        
+	        .then(function(){showSliderTable(event);})
+	}
+}
+
 
 
 document.addEventListener("DOMContentLoaded",function(){
@@ -305,4 +405,5 @@ document.addEventListener("DOMContentLoaded",function(){
     document.getElementById('gestionCategory').addEventListener("click", showCategoryTable);
     document.getElementById('gestionBooking').addEventListener('click',showBookingTable);
     document.getElementById('gestionMenus').addEventListener('click',showMenusTable);
+    document.getElementById('gestionSlider').addEventListener('click',showSliderTable);
 });
