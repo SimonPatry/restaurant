@@ -1,0 +1,62 @@
+<table class="mealsTable" id="mealsTable">
+    <caption><strong>Gestion des Plats</strong></caption>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Image</th>
+                <th>Categories</th>
+                <th>Modifier</th>
+                <th>Supprimer</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach($mealsTable as $meal): ?>
+                <tr>
+                    <td> <?= htmlspecialchars($meal['id']) ?> </td>
+                    <td> <?= htmlspecialchars($meal['name']) ?> </td>
+                    <td> <img src="<?= htmlspecialchars($meal['src'])?>" alt ="<?= htmlspecialchars($meal['alt'])?>"> </td>
+                    <td> <?= htmlspecialchars($meal['category']) ?> </td>
+                    <td><button class="editMeal" data-id="<?= $meal['id'] ?>" ><i class="fas fa-pen-nib"></i></button>
+                    </td>
+        	        <td><button type ="button" class ="delMeal" data-id="<?= $meal['id'] ?>"><i class="fas fa-trash-alt"></i></button></td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+</table>
+
+<button type="button" class="newMeal" >Ajouter un plat</button>
+     
+<form class="hide" id="mealForm" data-id="1" method="post" enctype="multipart/form-data">
+   <fieldset>
+       <legend><h2>Plat</h2></legend>
+        
+        <div class="hide">
+        <label for="id">ID</label>
+        <input type="text" name ="id" value ="<?= htmlspecialchars($meal['id'] ) ?>">
+        </div>
+        
+        <label for="name">Name</label>
+        <input name ="name" type="text" value ="<?= htmlspecialchars( $meal['name'] ) ?>">
+
+        <label for="image">Image</label>
+        <input type="file" name="image" class="image-menus">
+            <img src="<?= htmlspecialchars( $meal['src'] ) ?>" alt ="<?= htmlspecialchars( $meal['alt'] ) ?>">
+            
+        <label for="alt">Alt</label>
+        <input name ="alt" type="text" value ="<?= htmlspecialchars( $meal['alt'] ) ?>">
+        
+        <label for="categories">Categories</label>
+        <select class="categories-meals" name="categories">
+            <?php foreach($mealsTable as $meal): ?>
+            	<option value ="<?= htmlspecialchars( $meal['name']) ?>"><?= htmlspecialchars( $meal['name']) ?>
+            	</option>
+            <?php endforeach; ?>
+        </select>
+        
+    </fieldset>
+<button type="button" id="addEdit" >Modifier le Plat</button>
+
+<button type="button" class="addMeal" >Ajouter le Plat</button>
+
+</form>

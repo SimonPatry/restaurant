@@ -98,6 +98,27 @@ else if (isset($_GET['ajax']))
 		$controller = new Controllers\DashboardMenusController();
 		$controller -> deleteMenus();
 		break;
+		case 'meals':
+		$controller = new Controllers\DashboardMeals();
+		$controller -> displayMeals();
+		break;
+		case 'editMeal':
+		$controller = new Controllers\DashboardMeals();
+		$controller -> editMeal();
+		break;
+		case 'getMeal':
+		$controller = new Controllers\DashboardMeals();
+		$controller -> getMealDatas();
+		break;
+		case 'addMeal':
+		var_dump($_POST);
+		$controller = new Controllers\DashboardMeals();
+		$controller -> addMeal();
+		break;
+		case 'deleteMeal':
+		$controller = new Controllers\DashboardMeals();
+		$controller -> deleteMeal();
+		break;
 	}
 }
 
