@@ -1,5 +1,7 @@
+
 <h2>Gestion des réservations</h2>
 <table>
+    <thead>
     <tr>
         <th>Utilisateur</th>
         <th>Nombre de clients</th>
@@ -10,6 +12,8 @@
         <th>Modifier</th>
         <th>Supprimer</th>
     </tr>
+    </thead>
+    <tbody>
     <?php foreach($bookingTable as $booking): ?>
         <tr>
         	<td><?= $booking['first_name'] ?> <?= $booking['last_name'] ?></td>
@@ -38,6 +42,8 @@
     		<td><button><a class="deleteBooking" data-id="<?= $booking['id'] ?>" href=""><i class="fas fa-trash-alt"></i></a></button></td>
         </tr>
     <?php endforeach; ?>
+    </tbody> 
+    <tfoot>
         <tr id="add">
             <form>
                 <td><select name="user" class="user">
@@ -54,4 +60,5 @@
     		<td></td>
     		<td><button><a id="addBooking" href="" data-user = "<?= $booking['id_user'] ?>"><i class="fas fa-plus-square"></i></button></td>
         </tr>
+    </tfoot> 
 </table>

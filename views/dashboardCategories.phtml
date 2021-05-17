@@ -1,12 +1,15 @@
 <table id="categoriesTab">
-    <tr>
-        <th>id</th>
-        <th>name</th>
-        <th>main dish</th>
-        <th>description</th>
-        <th>edit</th>
-        <th>delete</th>
-    </tr>
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>main dish</th>
+            <th>description</th>
+            <th>edit</th>
+            <th>delete</th>
+        </tr>
+    </thead>
+    <tbody>
     <?php foreach($categoriesTable as $category): ?>
         <tr data-id="1" class="hide" id="<?= $category['id'] ?>">
             <td><input class="id" type="text" value="<?= $category['id'] ?>"></td>
@@ -24,7 +27,9 @@
             <td><a href="#" class="editCat" data-id="<?= $category['id'] ?>"><i class="fas fa-pen-nib"></i></a></td>
     	    <td><a href="#" class="delCat" data-id="<?= $category['id'] ?>"><i class="fas fa-trash-alt"></i></a></td>
         </tr>
-        <?php endforeach;?>
+    <?php endforeach;?>
+    </tbody>  
+    <tfoot>
         <tr id="addCat">
             <td>New category</td>
             <td><input id="catName" type="text"></td>
@@ -32,4 +37,5 @@
             <td><input id="description" type="text"></td>
             <td><a href="#" id="newCat">Add Category</i></a></td>
         </tr>
+     </tfoot> 
 </table>
