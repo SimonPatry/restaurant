@@ -33,7 +33,7 @@ class Meals extends Database
     public function getAllMeals()
     {
         return $this -> findAll("
-    	SELECT meal.id, meal.name, src, alt, category.name as category, id_category
+    	SELECT meal.id, meal.name, src, alt, category.name as category, id_category, is_dish
     	FROM meal
     	INNER JOIN category ON meal.id_category = category.id
     	");

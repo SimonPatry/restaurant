@@ -10,7 +10,7 @@ class Accueil extends Database
     	return $this -> findAll("
     	SELECT id, 
     	name,
-    	SUBSTR(content,1,200) as content,
+    	content,
     	src,
     	alt
     	FROM config");
