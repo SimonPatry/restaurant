@@ -9,6 +9,7 @@ class Slider extends Database
         return $this -> findAll("
     	SELECT id, src, alt, published, poids
     	FROM slider
+    	ORDER BY poids
     	");
     }
     public function getImageById($id):array

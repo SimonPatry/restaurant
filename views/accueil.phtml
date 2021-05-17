@@ -1,8 +1,10 @@
 <main class="container">
     <div class="slider">
-        <div><img src="assets/ressources/images/slider-01.jpg" alt="Table seen from the top with drinks and plates with food"></div>
-        <div><img src="assets/ressources/images/slider-02.jpg" alt="Zoom on a plate seen from the top and red chilli"></div>
-        <div><img src="assets/ressources/images/slider-03.jpg" alt="Table seen from the top with drinks and plates with food"></div>
+        <?php foreach($sliders as $slider): ?>
+            <?php if($slider['published'] == 1): ?>
+                <div><img src="<?= $slider['src'] ?>" alt="<?= $slider['alt'] ?>"></div>
+            <?php endif; ?>
+        <?php endforeach; ?>
     </div> <!-- end of .slider -->
     <section class="intro">
         <h1><?= htmlspecialchars($intro[0]['name']) ?></h1>

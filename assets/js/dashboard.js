@@ -1,3 +1,12 @@
+function stopRefresh(){
+    event.preventDefault();
+    console.log('toto');
+}
+
+/********************************************************/
+/*                      BOOKING
+/********************************************************/
+
 function showBookingTable(event){
     event.preventDefault();
     fetch('index.php?ajax=booking')
@@ -87,6 +96,10 @@ function addBooking(event){
 		showBookingTable(event);
 	});
 }
+
+/********************************************************/
+/*                      CATEGORIES
+/********************************************************/
 
 function showCategoryTable(event=null){
     if (event != null)
@@ -494,10 +507,9 @@ function deleteMeal(event)
 
 
 /********************************************************/
-/*                      DOM
+/*                      ACCUEIL
 /********************************************************/
 
-//     ///////////////// ACCUEIL  ///////////////// //
 // fonction pour afficher le contenu du dashbord en ajax 
 function showAccueilTable(event){
     event.preventDefault();
@@ -601,7 +613,9 @@ function deleteAccueil(event)
     
 }
 
-
+/********************************************************/
+/*                      DOM
+/********************************************************/
 
 document.addEventListener("DOMContentLoaded",function(){
     document.getElementById('gestionAccueil').addEventListener('click',showAccueilTable);
@@ -610,5 +624,6 @@ document.addEventListener("DOMContentLoaded",function(){
     document.getElementById('gestionMenus').addEventListener('click',showMenusTable);
     document.getElementById('gestionSlider').addEventListener('click',showSliderTable);
     document.getElementById('gestionMeals').addEventListener('click',showMealsTable);
+    document.getElementById('adminform').addEventListener('click', stopRefresh);
 
 });
