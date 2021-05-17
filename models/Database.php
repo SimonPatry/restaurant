@@ -8,7 +8,17 @@ abstract class Database
 	
 	public function __construct()
 	{
-		$this -> bdd = new \PDO('mysql:host=db.3wa.io;dbname=maudepap_restaurant;charset=utf8','maudepap','ca62be21a9f816743bca954a98e78bf6');
+		try
+		{
+			$this -> bdd = new \PDO('mysql:host=db.3wa.io;dbname=maudepap_restaurant;charset=utf8','maudepap','ca62be21a9f816743bca954a98e78bf6');
+		}
+		
+		catch(\Exception $e)
+		{
+			echo 'erreur bdd';
+			echo $e->getMessage();
+			die;
+		}
 	}
 	
 	public function findAll(string $req,array $params = []):array
@@ -18,7 +28,7 @@ abstract class Database
 		return $query -> fetchAll(\PDO::FETCH_ASSOC);
 	}
 	
-	public function findOne(string $req,array $params = []):array
+	public function findOne(string $req,array $params = [])
 	{
 		$query = $this -> bdd -> prepare($req);
 		$query -> execute($params);
@@ -30,5 +40,5 @@ abstract class Database
 		$query = $this -> bdd -> prepare($req);
 		$query -> execute($params);
 	}
-
+	
 }

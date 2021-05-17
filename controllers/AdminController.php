@@ -23,14 +23,30 @@ class AdminController
 	}
 	private function connection()
 	{
-		$admin = $this -> model -> getAdminByIdentifiant($_POST['identifiant']);
-		$pw = $_POST['pw'];
-		if (password_verify($pw, $admin['password']))
+		try
 		{
-			$_SESSION['admin'] = $admin['first_name'];
-			header('location:index.php?page=dashboard');
-			exit;
+			$admin = $this -> model -> getAdminByIdentifiant($_POST['identifiant']);
+			$pw = $_POST['pw'];
+		
+			if (password_verify($pw, $admin['password']))
+			{
+				$_SESSION['admin'] = $admin['first_name'];
+				header('location:index.php?page=dashboard');
+				exit;
+			}
+			else
+			{
+				$this -> message = "Le mot de passe ne correspond pas à l'identifiant.";
+			}
 		}
+		
+		catch(\Exception $e)
+		{
+			$this -> message = "Cet identifiant n'existe pas.";
+		}
+		
+		
+		
 	}
 	public function display()
 	{

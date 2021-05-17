@@ -1,5 +1,4 @@
 <table>
-    
     <caption><strong>Gestion du Slider</strong></caption>
         <thead>
             <tr>
@@ -37,7 +36,7 @@
 <?php foreach($sliderTable as $slider): ?>
     <form class="hide formulaire" data-id="<?= $slider['id'] ?>" method="post" enctype="multipart/form-data">
         <fieldset>
-           <legend><h2>Modifier un menu</h2></legend>
+           <legend><h2>Modifier une image du slider</h2></legend>
             
             <div class="hide">
             <label for="id">ID</label>
@@ -57,13 +56,13 @@
             <label for="poids">Poids</label>
             <input name ="poids" type="text" value="<?= $slider['poids'] ?>">
         </fieldset>
-        <button type="button" class="edit-slider">Modifier le slider</button>
+        <button type="button" class="edit-slider">Modifier</button>
     </form>  
 <?php endforeach; ?>   
 
 <form class="hide" id="addForm" method="post" enctype="multipart/form-data">
    <fieldset>
-       <legend><h2>Modifier un menu</h2></legend>
+       <legend><h2>Ajouter une image de slider</h2></legend>
         
         <div class="hide">
         <label for="id">ID</label>
@@ -82,7 +81,7 @@
         <label for="poids">Poids</label>
         <input name ="poids" type="text">
     </fieldset>
-<button type="button" class="add-slider">Ajouter le slider</button>
+<button type="button" class="add-slider">Ajouter</button>
 </form>  
 
 
