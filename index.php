@@ -30,8 +30,6 @@ if (isset($_GET['page']) && !isset($_GET['ajax']))
 		$controller = new Controllers\ContactController();
 		$controller -> display();
 		break;
-		
-		
 	}
 }
 else if (isset($_GET['ajax']))
