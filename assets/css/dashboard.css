@@ -87,7 +87,7 @@ tfoot{
 	font-size: 16px;
 	background: #495C70;
 	padding: 30px 30px 15px 30px;
-	/*border: 5px solid #53687E;*/
+	border: 5px solid #53687E;
 }
 
 /*   ********************FORMULAIRE************************ */
@@ -115,8 +115,8 @@ label {
 input[type=text],
 input[type=email] 
 {
-	background: transparent;
-	border: none;
+	/*background: transparent;*/
+	/*border: none;*/
 	/*border-bottom: 1px dashed #83A4C5;*/
 	width: 275px;
 	height: 15px;

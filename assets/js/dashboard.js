@@ -197,19 +197,32 @@ function showForm(event)
     event.preventDefault();
     let id = this.dataset.id;
     //AFFICHER LE FORMULAIRE
-    let selectToggle = document.getElementById('formulaire');
-    selectToggle.classList.toggle("hide");
-        
-        fetch(`index.php?ajax=getMenu&id=${id}`)
-        
-        //.then(response => response.text())
-        //utilisation de la reponse
-        .then(function(){
-            
-        })
-    document.getElementById("add-edit").addEventListener('click',editMenu);
     
-    document.querySelector('.add-menus').addEventListener('click',addMenu);
+        //si id existe
+        if(id)
+        {
+           fetch(`index.php?ajax=menus&id=${id}`)
+        
+            //.then(response => response.text())
+            //utilisation de la reponse
+            .then(response => response.text() ) 
+            .then(response => {document.getElementById("gestion").innerHTML = response;
+                let selectToggle = document.getElementById('formulaire');
+                selectToggle.classList.toggle("hide");
+                document.getElementById("add-edit").addEventListener('click',editMenu);
+                document.querySelector('.add-menus').addEventListener('click',addMenu);
+            })
+          
+        }
+        else
+        {
+            let selectToggle = document.getElementById('formulaire');
+            selectToggle.classList.toggle("hide");  
+            document.getElementById("add-edit").addEventListener('click',editMenu);
+            document.querySelector('.add-menus').addEventListener('click',addMenu);
+        }
+    
+    
 }        
         
 function editMenu(event)
