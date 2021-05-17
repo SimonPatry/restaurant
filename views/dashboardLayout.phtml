@@ -5,6 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="Freshly Restaurant, your new favourite restaurant !">
 		<title>Freshly Restaurant - Dashboard</title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/fontawesome.min.css">
 		<link href="https://fonts.googleapis.com/css?family=Athiti:500|Merienda:400,700&display=swap" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/fontawesome.min.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/brands.min.css">
@@ -13,23 +14,27 @@
 	</head>
 	<body>
 		<header>
-			<nav>
+			<nav id="dashboard-style">
 			    <ul>
-			    	<li><a href="index.php">Retour</a></li>
-			        <li><a id="gestionCategory" href="#">Catégories</a></li>
-			        <li><a id ="gestionMenus" href="">Menu</a></li>
-			        <li><a id ="gestionSlider" href="">Slider</a></li>
-			        <li><a id ="gestionMeals" href="#">Plats</a></li>
-			        <li><a href="">Horaires</a></li>
-			        <li><a href="#" id="gestionBooking">Réservations</a></li>
-			        <li><a href="#" id="gestionAccueil" >Accueil</a></li>
-			        <li><a href="#">Coordonnées</a></li>
-			    	<li><a href="index.php?page=admin&action=deco">Deconnexion</a></li>
+			    	<li><i class="fas fa-home"></i><a href="index.php">Retour</a></li>
+			        <li><i class="fas fa-chart-pie"></i><a id="gestionCategory" href="#">Catégories</a></li>
+			        <li><i class="fas fa-utensils"></i><a id ="gestionMenus" href="">Menu</a></li>
+			        <li><i class="fas fa-image"></i><a id ="gestionSlider" href="">Slider</a></li>
+			        <li><i class="fas fa-utensils"></i><a id ="gestionMeals" href="#">Plats</a></li>
+			        <li><i class="fas fa-calendar-alt"></i><a href="">Horaires</a></li>
+			        <li><i class="fas fa-address-book"></i><a href="#" id="gestionBooking">Réservations</a></li>
+			        <li><i class="fas fa-home"></i><a href="#" id="gestionAccueil" >Accueil</a></li>
+			        <li><i class="fas fa-address-book"></i><a href="#">Coordonnées</a></li>
+			    	<li><i class="fas fa-ban"></i><a href="index.php?page=admin&action=deco">Deconnexion</a></li>
 			    	<li>Bonjour <?= $_SESSION['admin'] ?></li>
 			    </ul>
 			</nav>
 		</header>
+		<main>
 			<?php include $template ?>
+		</main>
 		<script src="assets/js/dashboard.js"></script>
+		
 	</body>
+	
 </html>

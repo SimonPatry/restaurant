@@ -2,18 +2,127 @@
     display:none;
 }
 img{
-    width:15%;
+    width:100%;
 }
 .menusTable {
 width:80%;
 margin:auto;
 }
-
+nav{
+    position:absolute;
+    left:0;
+    width:20%;
+}
+main{
+    
+    width:75%;
+}
+table caption{
+    font-family:Verdana, sans-serif;
+    font-weight:bold;
+    background-color: LightSlateGray;
+    padding:0.5rem;
+}
 thead{
-    background-color: pink;
+    font-family:Verdana, sans-serif;
+    font-weight:bold;
+    background-color: PowderBlue;
     text-align:center;
 }
-
-td img{
-    margin:auto;
+thead tr th{
+    font-family:Verdana, sans-serif;
+    padding:0.5rem;
 }
+tbody tr td{
+    width:200px;
+    font-family:Verdana, sans-serif;
+    background-color: AntiqueWhite;
+}
+tfoot{
+    font-family:Verdana, sans-serif;
+    font-weight:bold;
+    background-color: PowderBlue;
+    text-align:center;
+}
+/*td img{*/
+/*    margin:auto;*/
+/*}*/
+
+#dashboard-style{
+    
+    width:100px;
+    height:650px;
+}
+
+#dashboard-style ul li{
+    list-style:none;
+    width:150px;
+    margin:0.5rem;
+    padding:0.5rem;
+    background-color: PowderBlue;
+   
+}
+#dashboard-style ul li a{
+    text-decoration:none;
+    margin-left:0.4rem;
+    font-family:Verdana, sans-serif;
+    font-weight:bold;
+    color:MidnightBlue;
+
+}
+/*Style HOVER nav dashboard*/
+#dashboard-style ul li:hover{
+    background-color: LightSlateGray;
+}
+
+#dashboard-style ul li a:hover{
+    color:Ivory;
+}
+
+.style-dashboard{
+    padding-left:250px;
+}
+.form{
+	width: 450px;
+	font-size: 16px;
+	background: #495C70;
+	padding: 30px 30px 15px 30px;
+	/*border: 5px solid #53687E;*/
+}
+
+/*   ********************FORMULAIRE************************ */
+form img{
+    width:20%;
+}
+
+input[type=submit],
+input[type=button],
+input[type=text],
+input[type=email],
+label
+{
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 16px;
+	color: black;
+
+}
+label {
+	display:block;
+	margin-bottom: 10px;
+	width:100%;
+}
+
+input[type=text],
+input[type=email] 
+{
+	background: transparent;
+	border: none;
+	/*border-bottom: 1px dashed #83A4C5;*/
+	width: 275px;
+	height: 15px;
+	padding: 0px 0px 0px 0px;
+	font-style: italic;
+}
+
+
+
