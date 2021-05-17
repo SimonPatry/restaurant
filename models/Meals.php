@@ -25,10 +25,10 @@ class Meals extends Database
     public function getMealById($id)
     {
     	return $this -> findOne("
-    	SELECT meal.id, meal.name, src, alt, category.name as category
+    	SELECT meal.id as idMeal, meal.name, src, alt, category.name as category
     	FROM meal
     	INNER JOIN category ON meal.id_category = category.id
-    	WHERE id = ?", [$id]);
+    	WHERE meal.id = ?", [$id]);
     }
     public function getAllMeals()
     {
@@ -44,5 +44,12 @@ class Meals extends Database
     	SELECT id, name, src, alt, id_category
     	FROM meal
     	WHERE id_category = ?", [$id]);
+    }
+    public function getMealImageById($id):array
+    {
+    	return $this -> findOne("
+    	SELECT src, alt
+    	FROM meal
+    	WHERE id = ?",[$id]);
     }
 }

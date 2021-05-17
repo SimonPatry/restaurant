@@ -42,7 +42,8 @@ class SliderController extends DashboardController
     			    //on donne le chemin d'acces pour l'image ancien chemin / nouveau chemin
     				move_uploaded_file($tmp_name, $image);
                 }
-                else {
+                else
+                {
                     $slider = $this -> slider -> getImageById($id);
                     $image = $slider['src'];
                 }

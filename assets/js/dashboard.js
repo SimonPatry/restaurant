@@ -391,29 +391,44 @@ function deleteSliderImg(event)
 /********************************************************/
 
 
-function showMealsTable(event){
+function showMealsTable(event, id=null){
     event.preventDefault();
     fetch("index.php?ajax=meals")
     .then(response => response.text())
     .then(response => {
-        document.getElementById("gestion").innerHTML = response;
-        console.log(response);
-        document.querySelectorAll('.editMeal').forEach((menu)=>{
-            menu.addEventListener('click',showMealForm);})
-        document.querySelectorAll('.delMeal').forEach((deleteMenu)=>{
-            deleteMenu.addEventListener('click',deleteMeal);})
-        document.querySelector('.newMeal').addEventListener('click',showMealForm);
+    document.getElementById("gestion").innerHTML = response;
+    document.querySelectorAll('.editMeal')
+    .forEach((menu)=>{
+        menu.addEventListener('click', function (){ showMealForm(event, menu.dataset.id); });
     });
-     
+    document.querySelectorAll('.delMeal').forEach((deleteMenu)=>{
+        deleteMenu.addEventListener('click', deleteMeal);
+    });
+    document.querySelector('.newMeal').addEventListener('click', showMealForm);
+    });
 }
 
-function showMealForm(event)
+function showMealForm(event, edit=null)
 {
-    event.preventDefault();
-    let selectToggle = document.getElementById('mealForm');
-    selectToggle.classList.toggle("hide");
-    document.getElementById("addEdit").addEventListener('click',editMeal);
-    document.getElementById('addMeal').addEventListener('click',addMeal);
+    if (edit != null)
+    {
+        fetch(`index.php?ajax=meals&id=${edit}`)
+        .then(response => response.text())
+        .then(response => {
+            document.getElementById("gestion").innerHTML = response;
+            let selectToggle = document.getElementById('mealForm');
+            selectToggle.classList.toggle("hide");
+            document.getElementById("addEdit").addEventListener('click',editMeal);
+            document.getElementById('addMeal').addEventListener('click',addMeal);
+        })
+    }
+    else
+    {
+        let selectToggle = document.getElementById('mealForm');
+        selectToggle.classList.toggle("hide");
+        document.getElementById("addEdit").addEventListener('click',editMeal);
+        document.getElementById('addMeal').addEventListener('click',addMeal);
+    }
 }
 
 function editMeal(event)
@@ -430,7 +445,7 @@ function editMeal(event)
         showMealsTable(event); 
         selectToggle.classList.toggle("hide");  
     })
-   
+ 
 }
 function addMeal(event)
 {
