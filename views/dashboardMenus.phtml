@@ -46,21 +46,21 @@
         
         <div class="hide">
         <label for="id">ID</label>
-        <input type="text" name ="id" value ="<?= htmlspecialchars($menu['id'] ) ?>" class="id-menus">
+        <input type="text" name ="id" value ="<?= htmlspecialchars(isset($_GET['id']) ? $editMenu['id'] : "" ) ?>" class="id-menus">
         </div>
         
         <label for="alias">Alias</label>
-        <input name ="alias" type="text" value ="<?= htmlspecialchars( $menu['alias'] ) ?>" class="alias-menus">
+        <input name ="alias" type="text" value ="<?= htmlspecialchars(isset($_GET['id']) ? $editMenu['alias'] : "" ) ?>" class="alias-menus">
         
         <label for="title">Title</label>
-        <input name ="title" type="text" value ="<?= htmlspecialchars( $menu['title'] ) ?>" class="title-menus">
+        <input name ="title" type="text" value ="<?= htmlspecialchars(isset($_GET['id']) ? $editMenu['title'] : "" ) ?>" class="title-menus">
 
         <label for="image">Image</label>
         <input type="file" name="image" class="image-menus">
-            <img src="<?= htmlspecialchars( $menu['src'] ) ?>" alt ="<?= htmlspecialchars( $menu['alt'] ) ?>">
+            <img src="<?= htmlspecialchars(isset($_GET['id']) ? $editMenu['src'] : "" ) ?>" alt ="<?= htmlspecialchars(isset($_GET['id']) ? $editMenu['alt'] : "" ) ?>">
             
         <label for="alt">Alt</label>
-        <input name ="alt" type="text" value ="<?= htmlspecialchars( $menu['alt'] ) ?>" class="alt-menus">
+        <input name ="alt" type="text" value ="<?= htmlspecialchars(isset($_GET['id']) ? $editMenu['alt'] : "" ) ?>" class="alt-menus">
 
 
         <label for="categories">Categories</label>
@@ -72,7 +72,7 @@
         </select>
         
         <label for="price">Prix</label>
-        <input name ="price" type="text" value ="<?= htmlspecialchars( $menu['price']) ?>" class="price-menus">
+        <input name ="price" type="text" value ="<?= htmlspecialchars(isset($_GET['id']) ? $editMenu['price'] : "" ) ?>" class="price-menus">
     </fieldset>
 <button type="button" id="add-edit" >Modifier le menu</button>
 

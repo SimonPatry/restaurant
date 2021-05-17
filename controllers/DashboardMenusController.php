@@ -24,6 +24,10 @@ class DashboardMenusController
 	//pour le dashbord va chercher les éléments 
 	public function displayMenus()
 	{
+		if(isset($_GET['id']))
+		{
+			$editMenu = $this -> menus -> getMenusById($_GET['id']);
+		}
 	    $menusTable = $this -> menus -> getAllMenus();
 	    $categories = $this -> categories -> getAllCategories();
 		include "views/dashboardMenus.phtml";
@@ -37,7 +41,7 @@ class DashboardMenusController
 			
 			if(!empty($_POST))
 			{
-				var_dump("je passe pas la");
+		
 				$id = $_POST['id'];
 				$alias = $_POST['alias'];
 				$title = $_POST['title'];
@@ -45,18 +49,25 @@ class DashboardMenusController
 				$categories = $_POST['categories'];
 				$price = $_POST['price'];
 				
-				// on recupere le nom de notre image (var_dump)
-				$image_name = $_FILES['image']['name'] ;
-	
-				// on recupere tmp de notre image qui est son chemin provisoire
-				$tmp_name = $_FILES['image']['tmp_name'];
-				
-				// on donne le nouveau chemin de notre image
-				$image = "assets/ressources/images/menus/$image_name";
+				if (!empty($_FILES['img']['name']))
+                {
+					// on recupere le nom de notre image (var_dump)
+					$image_name = $_FILES['image']['name'] ;
 		
-			    //on donne le chemin d'acces pour l'image ancien chemin / nouveau chemin
-				move_uploaded_file($tmp_name, $image);
-				
+					// on recupere tmp de notre image qui est son chemin provisoire
+					$tmp_name = $_FILES['image']['tmp_name'];
+					
+					// on donne le nouveau chemin de notre image
+					$image = "assets/ressources/images/menus/$image_name";
+			
+				    //on donne le chemin d'acces pour l'image ancien chemin / nouveau chemin
+					move_uploaded_file($tmp_name, $image);
+                }
+                else 
+                {
+                	$menus = $this -> menus -> getImageById($id);
+                	$image = $menus['src'];
+                }
 				//on appel la fonction qui va modifier les menus (UPTADE)
 				$this -> menus -> editMenus($title,$alias,$image,$alt,$price,$categories,$id);
 	

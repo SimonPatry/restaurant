@@ -124,4 +124,12 @@ class Menus extends Database
     	
     }
     
+    public function getImageById($id):array
+    {
+    	return $this -> findOne("
+    	SELECT id, src, alt,
+    	FROM menus
+    	WHERE id = ?",[$id]);
+    }
+    
 }
