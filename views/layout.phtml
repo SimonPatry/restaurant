@@ -17,6 +17,7 @@
 </head>
 <body>
 	<header>
+	
 		<div class="container">
 			<a href="index.php" class="logo">
 				<img src="assets/ressources/images/logo.png" alt="Logo for Freshly Restaurant">
@@ -38,43 +39,78 @@
 		</div>
 	</header>
 	
+
 	<!-- code principal de la page -->
 	<?php include $template ?>
+	
+	<?php if(!isset($_COOKIE['params'])): ?>
+		<section class ="cookies">
+			<section class="container-cookies">
+				<form id ="cookies-form"  method="post">
+					<fieldset>
+				       <legend><h2>Cookies</h2></legend>
+			
+				        <label for="cookies-fonctionnel">Acceptez vous les cookies fonctionnels</label>
+				        <select class="cookies-fonctionnel" id ="cookies-fonctionnel" name="cookies-fonctionnel">
+		            		<option value ="oui" selected>Oui</option>
+				            <option value ="non">Non</option>	
+				        </select>
+				        
+				        <label for="cookies-pub">Acceptez vous les cookies pub</label>
+				        <select class="cookies-pub" id ="cookies-pub" name="cookies-pub">
+		            		<option value ="oui" >Oui</option>
+				            <option value ="non" selected>Non</option>	
+				        </select>
+				        
+				        <label for="cookies-suivis">Acceptez vous les cookies de suivis</label>
+				        <select class="cookies-suivis" id ="cookies-suivis" name="cookies-suivis">
+		            		<option value ="oui">Oui</option>
+				            <option value ="non" selected>Non</option>	
+				        </select>
+					</fieldset>
+					<button type="button" id="accept-cookies" >Accepter la sélection</button>
+					<button type="button" id="reject-all" >Refuser tous les cookies</button>
+					<button type="button" id="accept-all" >Accepter tous les cookies</button>
+				</form>
+			</section>
+		</section>
+	<?php endif; ?>
+	<footer>
+		<div class="container">
+			<div class="flex">
+				<aside>
+					<h4>Opening hours</h4>
+					<ul>
+						<li>Monday: Closed</li>
+						<li>Tue-Wed : 9am - 10pm</li>
+						<li>Thu-Fri : 9am - 10pm</li>
+						<li>Sat-Sun : 5pm - 10pm</li>
+					</ul>
+				</aside>
+				<aside>
+					<h4>Contact</h4>
+					<address>
+						<p>13 Christopher Street<br>
+							New York,<br>
+							NY 10014-3543</p>
+						<p>+01 2000 800 9999</p>
+					</address>
+				</aside>
+				<aside>
+					<h4>Social networks</h4>
+					<div class="reseaux">
+						<a href="#" class="fab fa-facebook-f"></a>
+						<a href="#" class="fab fa-instagram"></a>
+						<a href="#" class="fab fa-pinterest-p"></a>
+					</div>
+				</aside>
+			</div> <!-- end of .flex -->
+		</div> <!-- end of .container -->
+	</footer>
 	<script src="assets/js/script.js"></script>
 </body>
 
-<footer>
-	<div class="container">
-		<div class="flex">
-			<aside>
-				<h4>Opening hours</h4>
-				<ul>
-					<li>Monday: Closed</li>
-					<li>Tue-Wed : 9am - 10pm</li>
-					<li>Thu-Fri : 9am - 10pm</li>
-					<li>Sat-Sun : 5pm - 10pm</li>
-				</ul>
-			</aside>
-			<aside>
-				<h4>Contact</h4>
-				<address>
-					<p>13 Christopher Street<br>
-						New York,<br>
-						NY 10014-3543</p>
-					<p>+01 2000 800 9999</p>
-				</address>
-			</aside>
-			<aside>
-				<h4>Social networks</h4>
-				<div class="reseaux">
-					<a href="#" class="fab fa-facebook-f"></a>
-					<a href="#" class="fab fa-instagram"></a>
-					<a href="#" class="fab fa-pinterest-p"></a>
-				</div>
-			</aside>
-		</div> <!-- end of .flex -->
-	</div> <!-- end of .container -->
-</footer>
+
 
 </html>
 	

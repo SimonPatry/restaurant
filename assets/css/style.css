@@ -99,6 +99,29 @@ h2 {
 p {
 	margin-bottom: 1.5rem;
 }
+/* *****************************************************************
+COOKIES
+***************************************************************** */
+.hide{
+	display:none;
+}
+
+.cookies{
+	background-color: rgba(255,255,255,0.8);
+	height:100vh;
+	position:fixed;
+	width:100%;
+	z-index:1;
+	left: 0;
+	top: 0;
+}
+.container-cookies{
+	position:fixed;
+	width:40%;
+	left:30%;
+	top:30%;
+	z-index:2;
+}
 
 /* *****************************************************************
 HEADER

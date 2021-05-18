@@ -5,8 +5,27 @@ spl_autoload_register(function ($class_name) {
     	include $file.".php";
 });
 
+
 session_start();
 
+if(isset($_GET['cookie']))
+{
+	switch($_GET['cookie'])
+	{
+		case 'all':
+		$cookie = new Controllers\CookiesController();
+		$cookie -> acceptAllCookies();
+		break;
+		case 'none':
+		$cookie = new Controllers\CookiesController();
+		$cookie -> rejectAllCookies();
+		break;
+		case 'personalized':
+		$cookie = new Controllers\CookiesController();
+		$cookie -> acceptCookies();
+		break;
+	}
+}
 if (isset($_GET['page']) && !isset($_GET['ajax']))
 {
 	switch($_GET['page'])
