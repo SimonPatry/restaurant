@@ -446,10 +446,20 @@ function showMealForm(event, edit=null)
             selectToggle.classList.toggle("hide");
             document.getElementById("addEdit").addEventListener('click',editMeal);
             document.getElementById('addMeal').addEventListener('click',addMeal);
-        })
+        
+            document.querySelectorAll('.editMeal')
+            .forEach((menu)=>{
+                menu.addEventListener('click', function (){ showMealForm(event, menu.dataset.id); });
+            });
+            document.querySelectorAll('.delMeal').forEach((deleteMenu)=>{
+                deleteMenu.addEventListener('click', deleteMeal);
+            });
+            document.querySelector('.newMeal').addEventListener('click', showMealForm);
+                })
     }
     else
     {
+        
         let selectToggle = document.getElementById('mealForm');
         selectToggle.classList.toggle("hide");
         document.getElementById("addEdit").addEventListener('click',editMeal);
