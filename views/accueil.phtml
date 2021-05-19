@@ -2,9 +2,11 @@
     <div class="slider">
         <?php foreach($sliders as $slider): ?>
             <?php if($slider['published'] == 1): ?>
-                <div><img src="<?= $slider['src'] ?>" alt="<?= $slider['alt'] ?>"></div>
+                <div class="sliderImage"><img src="<?= $slider['src'] ?>" alt="<?= $slider['alt'] ?>"></div>
             <?php endif; ?>
         <?php endforeach; ?>
+        <button id="previous"><i class="fas fa-arrow-circle-left"></i></button>
+        <button id="next"><i class="fas fa-arrow-circle-right"></i></button>
     </div> <!-- end of .slider -->
     <section class="intro">
         <h1><?= htmlspecialchars($intro[0]['name']) ?></h1>

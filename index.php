@@ -136,6 +136,10 @@ else if (isset($_GET['ajax']))
 		break;
 		
 		//Slider
+		case 'sliderImage':
+			$controller = new Controllers\SliderController();
+			$controller -> getAllPublishedImages();
+			break;
 		case 'slider':
 			$controller = new Controllers\SliderController();
 			$controller -> displaySlider();

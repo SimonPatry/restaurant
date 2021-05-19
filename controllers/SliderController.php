@@ -14,7 +14,11 @@ class SliderController extends DashboardController
 	    $sliderTable = $this -> slider -> getAllSliderImages();
 		include "views/dashboardSlider.phtml";
 	}
-	
+	public function getSliderImages()
+	{
+		$sliderArray = $this -> slider -> getAllPublishedImages();
+		return $sliderArray;
+	}
 	public function editSliderImg()
 	{
 		//donnees formulaire 

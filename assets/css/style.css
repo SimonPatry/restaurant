@@ -235,38 +235,38 @@ main.container {
 SLIDER
 ***************************************************************** */
 
-.slick-dotted.slick-slider {
-	margin-bottom: 10rem;
+.sliderImage:not(:first-child){
+	display:none;
 }
 
-.slick-next::before, 
-.slick-prev::before {
-	font-size: 4rem;
-	color: #ebe3db;
+.slideShow{
+	animation: reveal 1s linear ;
+}
+.slideHide{
+	animation: hide 1s linear;
 }
 
-.slick-next {
-	right: 3rem;
+
+@keyframes reveal {
+  from {
+    opacity:0.1;
+  }
+
+  to {
+    opacity:1;
+  }
 }
 
-.slick-prev {
-	left: 1rem;
-	z-index:1;
+@keyframes hide {
+  from {
+    opacity:1;
+  }
+
+  to {
+    opacity:0;
+  }
 }
 
-.slick-dots {
-	bottom: -3rem;
-}
-
-.slick-dots li button::before {
-	font-size: 1.5rem;
-	color: #4c4343;
-	opacity: .5;
-}
-
-.slick-dots li.slick-active button::before {
-	color: #950000;
-}
 
 /* *****************************************************************
 INTRO

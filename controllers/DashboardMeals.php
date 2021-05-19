@@ -31,7 +31,6 @@ class DashboardMeals
 	{
 			if(!empty($_POST))
 			{
-				
 				$id = $_POST['id'];
 				$name = $_POST['name'];
 				$alt = $_POST['alt'];

@@ -12,6 +12,15 @@ class Slider extends Database
     	ORDER BY poids
     	");
     }
+    public function getAllPublishedImages():array
+    {
+        return $this -> findAll("
+    	SELECT id, src, alt, published, poids
+    	FROM slider
+    	WHERE published = 1
+    	ORDER BY poids
+    	");
+    }
     public function getImageById($id):array
     {
     	return $this -> findOne("
